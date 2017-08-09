@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QBI-Image Contest Display and Voting System</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<script type="text/javascript" src="js/MainJS.js"></script>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<!--Here is the start of navigation system-->
+	
+	<div id="light" class="white_content"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"><img src="img/signup.png" alt="login"/></a></div> 
+    <div id="fade" class="black_overlay"></div>
+	<div class="header">
+		<div><img src="img/QBI.jpg" alt="QBI"/> </div>
+		<div class="loginbutton"><a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'"><img src="img/login.jpg" alt="loginbutton"/></a></div>
+	</div>
+	<nav>		
+		<div class="navigation">		
+		<ul>
+		<li><a href="index.html" title="Home" ><button class="medium" type="button">HOME</button></li>
+	    <li><a href="timeline.html" title="Explore"><button class="medium" type="button">PAST WINNER</button></a></li>
+	    <li><a href="https://qbi.uq.edu.au/" title="Trip"><button class="medium" type="button">QBI</button></a></li>
+	    <li><a href="contact.html" title="contact"><button class="medium" type="button">ABOUT US</button></a></li>
+		</ul>
+		</div>
+	</nav>
+
+	<!--Here is the start of User function--><div></div>
+
+	<!--Here is the start of Change langyage function--><div></div>
+
+	<!--Here is the start of Introductions for voting-->
+	<div class="introductions">
+		<p>Introductions for Voting<span><a href="index_votingclose.html">When voting system is opening</a></span></p>
+	</div>
+
+	<!--Here is the start of filter function-->
+	<div class="filter">
+		<div class="filter-select">
+			<form action="#" method="get"> 
+			<label><input name="Category" type="checkbox" value="Artistics" />Artistics</label><br/><br/> 
+			<label><input name="Category" type="checkbox" value="Scoemtistics" />Scoemtistics </label><br/><br/>
+			<label><input name="Category" type="checkbox" value="Technical" />Technical</label><br/><br/> 
+			<label><input name="Category" type="checkbox" value="Video" />Video</label><br/><br/>
+			<label><input name="Category" type="checkbox" value="Ranking" />Ranking</label><br/><br/>
+		<div class="refine">
+			<input type="submit" value="REFINE"/>
+		</div>
+		</form>
+		</div> 
+	</div>
+
+	<!--Here is the start of voting function-->
+	<div class="voting">
+		<table>
+			<tr>
+			<td>1</td>
+			<td><img src="img/exampleimg/e7.jpg" alt="example"/></td>
+			<td><a href="#">EDIT</a></td>
+			</tr>
+			<tr>
+			<td>2</td>
+			<td><img src="img/exampleimg/e4.jpg" alt="example"/></td>
+			<td><a href="#">EDIT</a></td>
+			</tr>
+			<tr>
+			<td>3</td>
+			<td><img src="img/exampleimg/e6.jpg" alt="example"/></td>
+			<td><a href="#">EDIT</a></td>
+			</tr>
+		</table>
+		<input type="submit" value="Submit"/>
+	</div>
+
+	<!--Here is the start of imgages display function-->
+	<div class="image-display">
+		<table>
+			<tr>
+				<td valign="top"><img src="img/exampleimg/e1.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e2.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e3.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e4.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+			</tr>
+			<tr>
+				<td valign="top"><img src="img/exampleimg/e5.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e6.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e7.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e8.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="show" class="image-display" style="display:none;">
+		<table>
+			<tr>
+				<td valign="top"><img src="img/exampleimg/e9.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/exampleimg/e10.jpg" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+			</tr>
+			<tr>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+				<td valign="top"><img src="img/eg.png" alt="example"/><p>Title</p><p>Author</p></td>
+			</tr>
+		</table>
+	</div>
+
+	<!--Here is the start of imgages reload function-->
+	<div onClick="javascript: img_show()" class="reload">
+		<a href="#"><p>View more</p></a>
+	</div>
+        
+    <script language="javascript">
+    var show = document.getElementById("show");
+    function img_show() {
+        if(show.style.display == "none")
+            show.style.display = "block";         
+    }
+    </script>
+
+	<footer>
+	</footer>
+</body>
+</html>

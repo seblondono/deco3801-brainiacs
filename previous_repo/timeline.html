@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>QBI-Image Contest Display and Voting System</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css"/>
+	<link rel="stylesheet" href="css/timeline.css" type="text/css"/>
+	<link rel="stylesheet" href="css/swiper.css">
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/swiper.js"></script>
+
+</head>
+<body>
+	<!--Here is the start of navigation system-->
+	<div class="header">
+		<img src="img/QBI.jpg" alt="QBI"/> 
+	</div>
+	
+	<nav>		
+		<div class="navigation">		
+		<ul>
+		<li><a href="index.html" title="Home" ><button class="medium" type="button">VOTING</button></li>
+	    <li><a href="timeline.html" title="Explore"><button class="medium" type="button">PAST WINNER</button></a></li>
+	    <li><a href="https://qbi.uq.edu.au/" title="Trip"><button class="medium" type="button">QBI</button></a></li>
+	    <li><a href="contact.html" title="contact"><button class="medium" type="button">ABOUT US</button></a></li>
+		</ul>
+		</div>
+	</nav>
+
+
+	<!--Past winner Timeline/Swiper demo code start-->
+	<div class="Fakeinterface">
+		<div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/pastwinner1.png" alt="test1"/></div>
+                <div class="swiper-slide"><img src="img/pastwinner2.png" alt="test1"/></div>
+                <div class="swiper-slide"><img src="img/pastwinner3.png" alt="test1"/></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div><div class="swiper-button-prev"></div>
+        </div>
+	</div>
+
+	<script>
+        var swiper = new Swiper('.swiper-container', {
+            pagination: '.swiper-pagination',
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            slidesPerView: 1,
+            paginationClickable: true,
+            spaceBetween: 30,
+            loop: true
+        });
+    </script>
+    <!--Past winner Timeline/Swiper demo code end-->
+
+</body>
+</html>
