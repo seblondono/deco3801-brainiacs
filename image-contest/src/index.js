@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
-import './index.css';
-// import App from './App';
+import './css/index.css';
+import App from './components/App';
 // import registerServiceWorker from './registerServiceWorker';
 
 // ReactDOM.render(<App />, document.getElementById('root'));
@@ -9,5 +9,5 @@ import './index.css';
 
 import ImageCard from './components/ImageCard';
 
-render(<ImageCard />, document.querySelector('#root'));
+render(<App />, document.querySelector('#root'));
 // registerServiceWorker();
