@@ -3,19 +3,26 @@ import Header from './Header';
 import ContestImages from './ContestImages';
 import Voting from './Voting';
 import Navigation from './Navigation';
+import Contact from './Contact';
+import Footer from './Footer';
 
 class App extends React.Component {
   render() {
     return (
-      <div className="image-contest">
-        <div className="header">
+      <div>
+        <div>
           <Header />
         </div>
-        <div className="navigation">
+        <div>
           <Navigation />
         </div>
-        <ContestImages />
-        <Voting />
+        <div>
+          <Contact />
+        </div>
+        <Footer />
+
+        {/* <ContestImages /> */}
+        {/* <Voting /> */}
       </div>
     );
   }
