@@ -1,3 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+/*@import url("https://qbi.uq.edu.au/sites/all/libraries/chosen/chosen.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/chosen/css/chosen-drupal.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_api/date.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_popup/themes/datepicker.1.7.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_repeat_field/date_repeat_field.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/field_hidden/field_hidden.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/custom/uq_components/core/uq_snippets/uq_snippets.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/modules/user/user.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/video_filter/video_filter.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date_repeat_entity/date_repeat_entity.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/custom/uq_components/components/uq_panel_feature/css/style.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/ckeditor_image2/ckeditor_image2.theme.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/ckeditor_image2/ckeditor_image2.responsive.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/panels/css/panels.css?ovm7mr");
+@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/qtip/css/qtip.css?ovm7mr");*/
+@import url("./styles-blessed1.css");
+@import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/styles.css?ovm7mr");
+/*@import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/print.css?ovm7mr");*/
+
+
 body {
   margin: 0;
   padding: 0;
@@ -26,3 +47,6 @@ p {
   font-family: 'arial';
   font-size: 0.9em;
 }
+
+
+
