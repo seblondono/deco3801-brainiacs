@@ -18,6 +18,25 @@
 @import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/styles.css?ovm7mr");
 /*@import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/print.css?ovm7mr");*/
 
+.main-contest {
+  width: 100%;
+  height: 1100px;
+  min-height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
+.contest-images {
+  width: 70%;
+  height: 100%;
+  background-color: #f6f9fc;
+}
+
+.voting {
+  width: 30%;
+  height: 100%;
+  background-color: pink;
+}
 
 

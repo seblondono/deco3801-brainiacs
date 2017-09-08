@@ -10,19 +10,14 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          <Header />
+        <Header />
+        <Navigation />
+        <div className="main-contest">
+          <ContestImages />
+          <Voting />
         </div>
-        <div>
-          <Navigation />
-        </div>
-        <div>
-          <Contact />
-        </div>
+        <Contact />
         <Footer />
-
-        {/* <ContestImages /> */}
-        {/* <Voting /> */}
       </div>
     );
   }
