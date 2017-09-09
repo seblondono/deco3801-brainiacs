@@ -33,7 +33,7 @@ const Header = (props) => {
                         <fieldset className="site-search__fieldset">
                             <legend className="site-search__legend">Site search</legend>
                             <label htmlFor="site-search__query" className="search__title site-search__title">Search</label>
-                            <input id="site-search__query" className="site-search__input site-search__query" type="text" value="Search this site" name="q" placeholder="Search this site" tabIndex="1"/>
+                            <input id="site-search__query" className="site-search__input site-search__query" type="text" name="q" placeholder="Search this site" tabIndex="1"/>
                             <input name="submit" value="&#xf002;" className="fa fa-search site-search__input site-search__submit" title="Search this site" type="submit"/>
                             <input type="hidden" name="output" value="xml_no_dtd"/>
                             <input type="hidden" name="client" value="ws"/>

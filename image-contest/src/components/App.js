@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './Header';
+import Navigation from './Navigation';
 import ContestImages from './ContestImages';
 import Voting from './Voting';
-import Navigation from './Navigation';
 import Contact from './Contact';
 import Footer from './Footer';
 
