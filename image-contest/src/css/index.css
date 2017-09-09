@@ -19,9 +19,10 @@
 /*@import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/print.css?ovm7mr");*/
 
 .main-contest {
-  width: 100%;
+  width: 60%;
   height: 1100px;
   min-height: 900px;
+  margin: auto;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -31,12 +32,14 @@
   width: 70%;
   height: 100%;
   background-color: #f6f9fc;
+  margin: 0;
+  padding: 1.5em;
 }
 
 .voting {
   width: 30%;
   height: 100%;
-  background-color: pink;
+  background-color: #dde0e2;
 }
 
 
