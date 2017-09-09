@@ -5,15 +5,13 @@ class ContestImages extends React.Component {
     render() {
         return (
             <div className="contest-images">
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
-                <ImageCard />
+                {
+                    Object
+                    .keys(this.props.images)
+                    .map((key) => <ImageCard key={key} imageKey={key} imageDetails={this.props.images[key]} addPreVote={this.props.addPreVote} />)
+                }
+                
+            
             </div>
         )
     }

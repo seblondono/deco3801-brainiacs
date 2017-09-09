@@ -67,24 +67,31 @@
   font-size: 1.2em;
   margin: 0.45em 0;
   line-height: 0.9em;
+  max-height: 17px;
+  text-align: center;
+  overflow: hidden;
 }
 
-.image-card > img {
-  width: 80%;
+#image-card__image {
+  width: 167px;
+  min-height: 155px;
   margin: 0;
 }
 
 .image-card > p {
   width: 90%;
+  max-height: 75px;
+  min-height: 75px;
   font-size: 0.7em;
   line-height: 15px;
-  margin-bottom: 0;
+  margin-bottom: 0.3em;
+  overflow: hidden;
 }
 
 .image-card > i {
   color: #333;
   align-self: flex-end;
-  padding-right: 0.8em;
+  padding-right: 0.5em;
   transition: all 0.3s;
   cursor: pointer;
 }

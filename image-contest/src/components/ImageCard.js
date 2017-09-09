@@ -5,20 +5,35 @@ import React from 'react';
 
 class ImageCard extends React.Component {
     addToVote(e) {
+
         if(this.addImage.className === 'fa fa-plus') {
             this.addImage.className = 'fa fa-check';
+            this.props.addPreVote(this.props.imageKey);
         } else {
             this.addImage.className = 'fa fa-plus';
         }
     }
 
     render() {
+        // If image is selected then the icon changes to checked
+        const selected = this.props.imageDetails.selected === false ? "fa fa-plus" : "fa fa-check";
+        const imageBackground = {
+            backgroundImage: 'url(' + this.props.imageDetails.imageURL + ')',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center'
+        }
+        
         return (
             <div className='image-card'>
-                <h1>The Visual Brain</h1>
-                <img src="https://dl.dropboxusercontent.com/s/aoo0mei2sgm10q0/QBI-Art-in-Neuroscience-Technical.jpg?dl=0" alt="The visual brain"/>
-                <p><strong>The visual brain</strong> by Hanne Theon, Marshall lab. 3D-volume reconstruction of the optic neuropils of a mantis shrimps eye. The colour indicates depth in the tissue.</p>
-                <i className="fa fa-plus" aria-hidden="true" onClick={this.addToVote.bind(this)} ref={(add) => {this.addImage = add}}></i>
+                <h1 ref={(input) => {this.imageTitle = input}}>
+                    {this.props.imageDetails.imageTitle}
+                </h1>
+                <a href={this.props.imageDetails.imageURL}><div id="image-card__image" style={imageBackground} title={this.props.imageDetails.imageTitle}></div></a>
+                <p ref={(input) => {this.imageDesc = input}}>
+                    {this.props.imageDetails.imageDesc}
+                </p>
+                <i className={selected} aria-hidden="true" onClick={this.addToVote.bind(this)} ref={(input) => {this.addImage = input}}></i>
             </div>
         )
     }

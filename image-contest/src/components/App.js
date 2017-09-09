@@ -5,16 +5,50 @@ import ContestImages from './ContestImages';
 import Voting from './Voting';
 import Contact from './Contact';
 import Footer from './Footer';
+import sampleImages from '../sample-images';
 
 class App extends React.Component {
+  constructor() {
+    super();
+    this.addPreVote = this.addPreVote.bind(this);
+    this.loadSampleImages = this.loadSampleImages.bind(this);
+    // Initial image-contest state
+    this.state = {
+      images: {},
+      preVotes: {},
+      finalVotes: {}
+    };
+  }
+
+  componentWillMount() {
+    console.log('mount component');
+    this.loadSampleImages();
+  }
+
+  loadSampleImages() {
+    this.setState({
+      images: sampleImages
+    });
+  }
+
+  addPreVote(imageKey) {
+    // update our state
+    const preVotes = {...this.state.preVotes};
+    // add our the image to the preVotes state
+    // const timestamp = Date.now();
+    preVotes[imageKey] = imageKey;
+    // set state
+    this.setState({ preVotes });
+  }
+
   render() {
     return (
       <div>
         <Header />
         <Navigation />
         <div className="main-contest">
-          <ContestImages />
-          <Voting />
+          <ContestImages addPreVote={this.addPreVote} images={this.state.images}/>
+          <Voting images={this.state.images} preVotes={this.state.preVotes}/>
         </div>
         <Contact />
         <Footer />
