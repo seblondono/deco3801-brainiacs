@@ -29,7 +29,9 @@ class ImageCard extends React.Component {
                 <h1 ref={(input) => {this.imageTitle = input}}>
                     {this.props.imageDetails.imageTitle}
                 </h1>
-                <a href={this.props.imageDetails.imageURL}><div id="image-card__image" style={imageBackground} title={this.props.imageDetails.imageTitle}></div></a>
+                <a href={this.props.imageDetails.imageURL}>
+                    <div id="image-card__image" style={imageBackground} title={this.props.imageDetails.imageTitle}></div>
+                </a>
                 <p ref={(input) => {this.imageDesc = input}}>
                     {this.props.imageDetails.imageDesc}
                 </p>
