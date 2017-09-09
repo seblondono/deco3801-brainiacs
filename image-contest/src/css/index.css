@@ -46,7 +46,7 @@
 .voting {
   width: 30%;
   height: 100%;
-  background-color: #dde0e2;
+  background-color: #d0d4d9;
 }
 /***************************************************************************/
 /******************************  Images Cards ******************************/
@@ -78,5 +78,18 @@
   width: 90%;
   font-size: 0.7em;
   line-height: 15px;
+  margin-bottom: 0;
+}
+
+.image-card > i {
+  color: #333;
+  align-self: flex-end;
+  padding-right: 0.8em;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.image-card > i.fa-check {
+  color: #20c758;
 }
 /***************************************************************************/
