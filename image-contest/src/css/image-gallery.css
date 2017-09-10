@@ -195,7 +195,9 @@
     width: 700px;
     height:550px;
     margin-top: 20px;
-    margin-left:25%; }
+    display: block;
+    margin-left: auto;
+    margin-right: auto; }
   .image-gallery-slide .image-gallery-description {
     background: rgba(0, 0, 0, 0.4);
     bottom: 70px;
