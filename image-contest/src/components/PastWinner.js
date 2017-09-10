@@ -4,7 +4,8 @@ import Header from './Header';
 import NavBar from './PWNavBar';
 import Contact from './Contact';
 import Footer from './Footer';
-import PWSlider from './PWSlider'
+import PWSlider from './PWSlider';
+import PWText from './PWText';
 
 
 class  PastWinner extends Component {
@@ -14,6 +15,7 @@ class  PastWinner extends Component {
           <Header />
           <NavBar />
           <PWSlider />
+          <PWText />
           <Contact />
           <Footer /> 
          
