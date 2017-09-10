@@ -1,28 +1,14 @@
-/*@import url('https://fonts.googleapis.com/css?family=Roboto');*/
-/*@import url("https://qbi.uq.edu.au/sites/all/libraries/chosen/chosen.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/chosen/css/chosen-drupal.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_api/date.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_popup/themes/datepicker.1.7.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date/date_repeat_field/date_repeat_field.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/field_hidden/field_hidden.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/custom/uq_components/core/uq_snippets/uq_snippets.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/modules/user/user.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/video_filter/video_filter.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/date_repeat_entity/date_repeat_entity.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/custom/uq_components/components/uq_panel_feature/css/style.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/ckeditor_image2/ckeditor_image2.theme.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/ckeditor_image2/ckeditor_image2.responsive.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/panels/css/panels.css?ovm7mr");
-@import url("https://qbi.uq.edu.au/sites/all/modules/contrib/qtip/css/qtip.css?ovm7mr");*/
-@import url("./styles-blessed1.css");
+@import url("https://auth.uq.edu.au/idp/module.php/uqtheme/css/normalize.css");
 @import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/styles.css?ovm7mr");
-/*@import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/print.css?ovm7mr");*/
-
+@import url("https://auth.uq.edu.au/idp/module.php/uqtheme/css/uq.css");
 
 /*****************  Contest Images and Voting Preselection *****************/
+.image-contest {
+  padding-top: 0;
+}
+
 .main-contest {
   max-width: 1140px;
-  height: 1100px;
   min-height: 900px;
   margin: 0 auto;
   display: flex;
@@ -32,8 +18,7 @@
 
 .contest-images {
   width: 70%;
-  height: 100%;
-  /* background-color: #f6f9fc; */
+  min-height: 60%;
   margin: 0;
   padding: 1.5em;
   display: flex;
@@ -163,6 +148,7 @@
 }
 
 .vote {
+  min-width: min-content;
   margin: 0;
   margin-top: 1em;
   padding: 0.5em 1.2em;
@@ -171,10 +157,24 @@
   font-weight: 300;
   line-height: 1em;
   letter-spacing: normal;
+  background-color: #2377CB;
+  border-color: transparent;
+  color: #fff;
+}
+
+.vote:disabled {
+  background-color: #74A3D2;
+  color: #fff;
+}
+
+.vote:disabled:hover {
+  background-color: #74A3D2;
+  color: #fff;
 }
 
 .vote:hover {
-  background-color: #2e73ab;
+  background-color: #1C66B0;
+  color: #fff;
 }
 
 .voting-instructions {

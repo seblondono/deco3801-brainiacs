@@ -18,7 +18,7 @@ const Header = (props) => {
                     </ul>
                 </div>
             </div>
-            <div className="site-header__content">
+            <div className="site-header__content image-contest">
                 <div className="columns medium-11 large-8">
                     <a href="https://www.uq.edu.au/" title="UQ Homepage" className="uq-logo">The University of Queensland</a>
                     <h2 className="site-title">

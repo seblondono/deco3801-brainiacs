@@ -1,86 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { withRouter } from 'react-router-dom';
 
-import './App.css';
-function FancyBorder(props) {
-  return (
-    <div className={'FancyBorder'}>
-	  
-	  {props.children}
-    </div>
-  );
-}
-function Dialog(props) {
-  return (
-    <FancyBorder color="blue">
-	   <a href="http://www.uq.edu.au/" title="UQ	Homepage" className="uq-logo">The University of Queensland</a>
-	   <h1 className="logo-title">
-		<a className="login-title" rel="home" title="Public sign-on">
-		<span className="titlespan">Public sign-on</span>
-		</a>
-      </h1> 
-      {props.children}
-    </FancyBorder>
-  );
-}
+class Login extends React.Component {
 
-class App extends Component {
-	
-	constructor(props) {
-    super(props);
-    this.handleChangeEmail = this.handleChangeEmail.bind(this);
-	this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleSignUp = this.handleSubmit.bind(this);
-    this.state = {value:''};
+  goToContest(e) {
+    e.preventDefault();
+    this.props.history.push('/image-contest');
   }
 
   render() {
     return (
-      <Dialog title="Public    ">
-		<div class="sign-on-icon">
-		<a href="https://its.uq.edu.au/sso" target="_blank">
-			<img src="https://auth.uq.edu.au/idp/module.php/uqtheme/images/lock2.svg" className="signonicon"/>
-		</a>
-		</div>
-		<h1 className="signon-title">
-		 Public
-		<span>    sign-on</span>
-		</h1>
-		<form onSubmit={this.hundleSubmit} className="loginform">
-		<label>
-        <input type="text" id="username" placeholder="Username" value={this.state.login}
-               onChange={this.handleChangeName} />
-		</label>	   
-		<label>
-        <input type="password" id="password" placeholder="Password" value={this.state.login}
-               onChange={this.handleChangeEmail} />
-		</label>			
-        <input type="submit" value="LOGIN" />
-		</form>
-		<div className="footer">
-		<a href="#">Forgot your password?</a>
-		</div>
-		<div className="footer">
-		<a href="https://ppl.app.uq.edu.au/content/6.20.01-acceptable-use-uq-ict-resources">Terms of use</a>
-		</div>
-		<div className="empty">
-		</div>
-      </Dialog>
-	  
-    );
-  } 
-  handleChangeName(e) {
-    this.setState({value: e.target.value});
+      <div>
+        <div className="site-header">
+          <div className="site-header__content">
+              <div className="columns large-12">
+                <a href="http://www.uq.edu.au/" title="UQ Homepage" className="uq-logo">The University of Queensland</a>
+                <h2 className="site-title"><a className="site-title__link" rel="home" title="Single sign-on" href="https://auth.uq.edu.au/idp"><span className="hide-for-small-only">Single Public sign-on</span><span className="show-for-small-only">Single Public sign-on</span></a></h2>
+              </div>
+          </div>
+        </div>
+        <div className="page">
+          {/* <!-- END HEADER --> */}
+          <div className="page__content">
+              <div className="sign-on__panel">
+                <div className="row">
+                    <div className="large-6 large-offset-3 small-12 columns">
+                      {/* <!-- UQ SSO Info --> */}
+                      <div className="sign-on__icon">
+                          <a href="https://its.uq.edu.au/sso" target="_blank" rel="noopener noreferrer"><img src="https://auth.uq.edu.au/idp/module.php/uqtheme/images/lock2.svg" className="center" alt="Sign on logo"/></a>
+                      </div>
+                      <h1 className="sign-on__title sign-on__title--centered">Single Public <span>sign-on</span></h1>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="sign-on__content">
+                      <form className="sign-on__form" action="?" method="post" name="f" onSubmit={(e) => this.goToContest(e)}>
+                          <label htmlFor="username" className="sign-on__form-label">Username</label>
+                          <input type="text" id="username" tabIndex="1" name="username" title="username" placeholder="username" autoFocus/>                    
+                          <div className="sign-on-form__border"></div>
+                          <label htmlFor="password" className="sign-on__form-label">Password</label>
+                          <input id="password" type="password" name="password" title="Password" placeholder="Password" tabIndex="2" autoFocus/> 
+                          <input type="submit" name="submit" className="button button--primary button--sign-on" value="LOGIN" tabIndex="3" />
+                      </form>
+                    </div>
+                    <div className="sign-on__footer">
+                      <div className="sign-on__footer-forgot small-12 medium-12 large-6 columns">
+                          <a href="https://www.uq.edu.au/password/reset">Forgot your password?</a>
+                      </div>
+                      <div className="sign-on__footer-terms small-12 medium-12 large-6 columns">
+                          <a href="https://ppl.app.uq.edu.au/content/6.20.01-acceptable-use-uq-ict-resources">Terms of use</a>
+                      </div>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    )
   }
-   handleChangeEmail(e) {
-    this.setState({value: e.target.value});
-  }
-
-  handleSubmit(e) {
-    alert(`Welcome aboard, ${this.state.login}!`);
-	e.preventDefault();
-  }
-  
 }
  
-export default App;
+export default withRouter(Login);
 

@@ -7,6 +7,8 @@ import Contact from './Contact';
 import Footer from './Footer';
 import sampleImages from '../sample-images';
 
+import '../css/index.css';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -21,7 +23,6 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    console.log('mount component');
     this.loadSampleImages();
   }
 
@@ -35,7 +36,6 @@ class App extends React.Component {
     // update our state
     const preVotes = {...this.state.preVotes};
     // add our the image to the preVotes state
-    // const timestamp = Date.now();
     preVotes[imageKey] = imageKey;
     // set state
     this.setState({ preVotes });
@@ -50,7 +50,7 @@ class App extends React.Component {
           <ContestImages addPreVote={this.addPreVote} images={this.state.images}/>
           <Voting images={this.state.images} preVotes={this.state.preVotes}/>
         </div>
-        {/* <Contact /> */}
+        <Contact />
         <Footer />
       </div>
     );
