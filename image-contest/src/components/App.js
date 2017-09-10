@@ -50,7 +50,7 @@ class App extends React.Component {
           <ContestImages addPreVote={this.addPreVote} images={this.state.images}/>
           <Voting images={this.state.images} preVotes={this.state.preVotes}/>
         </div>
-        <Contact />
+        {/* <Contact /> */}
         <Footer />
       </div>
     );
