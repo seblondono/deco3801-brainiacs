@@ -4,13 +4,36 @@ import React from 'react';
 // It displays and Image together with a title and a description
 
 class ImageCard extends React.Component {
-    addToVote(e) {
+    constructor() {
+        super();
+        this.nominate = this.nominate.bind(this);
+        this.changeIcon = this.changeIcon.bind(this);
+    }
+
+    changeIcon(addImage) {
+        if(addImage.className === 'fa fa-plus') {
+            addImage.className = 'fa fa-check';
+        } else {
+            addImage.className = 'fa fa-plus';
+        }
+    }
+
+    nominate(e) {
 
         if(this.addImage.className === 'fa fa-plus') {
-            this.addImage.className = 'fa fa-check';
             this.props.addPreVote(this.props.imageKey);
         } else {
-            this.addImage.className = 'fa fa-plus';
+            this.props.removePreVote(this.props.imageKey);
+        }
+        
+        this.changeIcon(this.addImage);
+    }
+
+    componentWillMount() {
+        // Renders the checked icons if preVotes come from local storage and not from user interaction
+        const checked = this.props.preVotes.hasOwnProperty(this.props.imageKey);
+        if (checked) {
+            this.props.imageDetails.selected = true;
         }
     }
 
@@ -35,7 +58,7 @@ class ImageCard extends React.Component {
                 <p ref={(input) => {this.imageDesc = input}}>
                     {this.props.imageDetails.imageDesc}
                 </p>
-                <i className={selected} aria-hidden="true" onClick={this.addToVote.bind(this)} ref={(input) => {this.addImage = input}}></i>
+                <i className={selected} aria-hidden="true" onClick={this.nominate} ref={(input) => {this.addImage = input}}></i>
             </div>
         )
     }
