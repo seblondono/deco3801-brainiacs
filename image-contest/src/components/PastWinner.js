@@ -3,8 +3,8 @@ import Header from './Header';
 import ContestNavigation from './ContestNavigation';
 import Contact from './Contact';
 import Footer from './Footer';
-import PWSlider from './PWSlider';
-import PWText from './PWText';
+import ImageSlider from './ImageSlider';
+import ImageDescription from './ImageDescription';
 
 
 class  PastWinner extends Component {
@@ -13,8 +13,8 @@ class  PastWinner extends Component {
       <div className="PastWinner">
           <Header />
           <ContestNavigation location={this.props.location}/>
-          <PWSlider />
-          <PWText />
+          <ImageSlider />
+          <ImageDescription />
           <Contact />
           <Footer /> 
       </div>
