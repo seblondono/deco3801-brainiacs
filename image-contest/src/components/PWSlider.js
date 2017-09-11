@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/PastWinner.css';
 import ImageGallery from 'react-image-gallery';
 /*Before implement it, please install npm react-image-gallery package 
 firstly, "npm install react-image-gallery"*/
@@ -45,8 +44,8 @@ class PWSlider extends Component {
         showPlayButton={false}
         showFullscreenButton={false}
         onImageLoad={this.handleImageLoad}/>
-        </div>
-    );
+      </div>
+    )
   }
 }
 
