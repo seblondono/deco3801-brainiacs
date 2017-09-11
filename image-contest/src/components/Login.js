@@ -5,7 +5,7 @@ class Login extends React.Component {
 
   goToContest(e) {
     e.preventDefault();
-    this.props.history.push('/image-contest');
+    this.props.history.push('/image-contest/vote');
   }
 
   render() {

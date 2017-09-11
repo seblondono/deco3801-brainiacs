@@ -7,31 +7,23 @@ class ImageCard extends React.Component {
     constructor() {
         super();
         this.nominate = this.nominate.bind(this);
-        this.changeIcon = this.changeIcon.bind(this);
-    }
-
-    changeIcon(addImage) {
-        if(addImage.className === 'fa fa-plus') {
-            addImage.className = 'fa fa-check';
-        } else {
-            addImage.className = 'fa fa-plus';
-        }
     }
 
     nominate(e) {
+        const nominated = this.props.imageDetails.selected;
 
-        if(this.addImage.className === 'fa fa-plus') {
+        if(!nominated) {
             this.props.addPreVote(this.props.imageKey);
+            this.props.imageDetails.selected = true;
         } else {
             this.props.removePreVote(this.props.imageKey);
+            this.props.imageDetails.selected = false;
         }
-        
-        this.changeIcon(this.addImage);
     }
 
     componentWillMount() {
-        // Renders the checked icons if preVotes come from local storage and not from user interaction
-        const checked = this.props.preVotes.hasOwnProperty(this.props.imageKey);
+        // Renders the checked icons if nominated come from local storage and not from user interaction
+        const checked = this.props.nominated.hasOwnProperty(this.props.imageKey);
         if (checked) {
             this.props.imageDetails.selected = true;
         }
@@ -58,7 +50,7 @@ class ImageCard extends React.Component {
                 <p ref={(input) => {this.imageDesc = input}}>
                     {this.props.imageDetails.imageDesc}
                 </p>
-                <i className={selected} aria-hidden="true" onClick={this.nominate} ref={(input) => {this.addImage = input}}></i>
+                <i className={selected} aria-hidden="true" onClick={this.nominate}></i>
             </div>
         )
     }

@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "font-awesome": "^4.7.0",
-    "forever": "^0.15.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-image-gallery": "^0.8.3",

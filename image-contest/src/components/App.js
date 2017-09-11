@@ -15,11 +15,13 @@ class App extends React.Component {
     this.addPreVote = this.addPreVote.bind(this);
     this.loadSampleImages = this.loadSampleImages.bind(this);
     this.removePreVote = this.removePreVote.bind(this);
+    this.addVotes = this.addVotes.bind(this);
     // Initial image-contest state
     this.state = {
       images: {},
-      preVotes: {},
-      finalVotes: {}
+      nominated: {},
+      preVoted: {},
+      voted: {}
     };
   }
 
@@ -28,18 +30,27 @@ class App extends React.Component {
     this.loadSampleImages();
 
     // Check if there is a prevote in localstorage
-    let localStorageRef = localStorage.getItem('prevote');
+    let localStorageNominated = localStorage.getItem('nominated');
+    let localStorageVoted = localStorage.getItem('voted');
 
-    if (localStorageRef) {
-      localStorageRef = JSON.parse(localStorageRef);
+    if (localStorageNominated) {
+      localStorageNominated = JSON.parse(localStorageNominated);
       this.setState({
-        preVotes: localStorageRef
+        nominated: localStorageNominated
+      });
+    }
+
+    if (localStorageVoted) {
+      localStorageVoted = JSON.parse(localStorageVoted);
+      this.setState({
+        voted: localStorageVoted
       });
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem('prevote', JSON.stringify(nextState.preVotes));
+    localStorage.setItem('nominated', JSON.stringify(nextState.nominated));
+    localStorage.setItem('voted', JSON.stringify(nextState.voted));
   }
 
   loadSampleImages() {
@@ -50,18 +61,41 @@ class App extends React.Component {
 
   addPreVote(imageKey) {
     // update our state
-    const preVotes = {...this.state.preVotes};
-    // add our the image to the preVotes state
-    preVotes[imageKey] = imageKey;
-    // set state
-    this.setState({ preVotes });
+    const nominated = {...this.state.nominated};
+    const preVoted = {...this.state.preVoted};
+    const voted = {...this.state.voted};
+
+    if (Object.keys(preVoted).length === 0) {
+      // add our the image to the nominated state
+      nominated[imageKey] = imageKey;
+      // set state
+      this.setState({ nominated });
+    } else {
+      voted[imageKey] = imageKey;
+      this.setState({ voted });
+    }
   }
 
   removePreVote(imageKey) {
-    const preVotes = {...this.state.preVotes};
-    delete preVotes[imageKey];
+    const nominated = {...this.state.nominated};
+    const voted = {...this.state.voted};
 
-    this.setState({ preVotes});
+    if (Object.keys(voted).length > 0) {
+      delete voted[imageKey];
+      this.setState({ voted });
+    }
+    
+    if (Object.keys(nominated).length > 0) {
+      delete nominated[imageKey];
+      this.setState({ nominated });
+    }
+  }
+
+  addVotes(nominated) {
+    let preVoted = {...this.state.preVoted};
+    preVoted = {...nominated};
+
+    this.setState({ preVoted });
   }
 
   render() {
@@ -73,12 +107,17 @@ class App extends React.Component {
           <ContestImages 
             addPreVote={this.addPreVote} 
             images={this.state.images} 
-            preVotes={this.state.preVotes}
+            nominated={this.state.nominated}
             removePreVote={this.removePreVote}
+            preVoted={this.state.preVoted}
+            voted={this.state.voted}
           />
           <Voting 
             images={this.state.images} 
-            preVotes={this.state.preVotes}
+            addVotes={this.addVotes}
+            nominated={this.state.nominated}
+            preVoted={this.state.preVoted}
+            voted={this.state.voted}
           />
         </div>
         <Contact />
