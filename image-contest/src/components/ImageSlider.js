@@ -3,39 +3,27 @@ import ImageGallery from 'react-image-gallery';
 /*Before implement it, please install npm react-image-gallery package 
 firstly, "npm install react-image-gallery"*/
  
-class PWSlider extends Component {
- 
-  handleImageLoad(e) {
+class ImageSlider extends Component {
+  constructor() {
+    super();
+    this.getCurrentIndex = this.getCurrentIndex.bind(this);
+  }
+
+  getCurrentIndex(index) {
+    this.props.getCurrentIndex(index);
   }
  
   render() {
- 
-    const images = [
-      {
-        original: 'https://qbi.uq.edu.au/files/24748/N_Valmas_c-elegans-worm.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/24748/N_Valmas_c-elegans-worm.jpg'
-      },
-      {
-        original: 'https://qbi.uq.edu.au/files/24417/Neuroscience_image_QBI_1513_nadia_cummins.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/24417/Neuroscience_image_QBI_1513_nadia_cummins.jpgg'
-      },
-      {
-        original: 'https://qbi.uq.edu.au/files/5168/Neuron-image_QBI_1504.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/5168/Neuron-image_QBI_1504.jpg',
-      },
-      {
-        original: 'https://qbi.uq.edu.au/files/5176/Neuron-image_QBI_1518.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/5176/Neuron-image_QBI_1518.jpg'
-      },
-      {
-         original: 'https://qbi.uq.edu.au/files/24474/Neuroscience_image_QBI_iris_wang_daisy.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/24474/Neuroscience_image_QBI_iris_wang_daisy.jpg'
-      },
-        {
-         original: 'https://qbi.uq.edu.au/files/24405/Neuroscience_image_QBI_1429-lauramorcom-interhemisphere.jpg',
-        thumbnail: 'https://qbi.uq.edu.au/files/24405/Neuroscience_image_QBI_1429-lauramorcom-interhemisphere.jpg'
-      }               
-    ]
+    const imagesKeys = Object.keys(this.props.images);
+    const images = imagesKeys.reduce((images, key) => {
+      let image = this.props.images[key];
+      images.push({
+        original: image.imageURL, 
+        thumbnail: image.imageURL
+      });
+
+      return images;
+    }, []);
  
     return (
       <div>
@@ -43,10 +31,11 @@ class PWSlider extends Component {
         items={images}
         showPlayButton={false}
         showFullscreenButton={false}
-        onImageLoad={this.handleImageLoad}/>
+        onSlide={this.getCurrentIndex}
+      />
       </div>
     )
   }
 }
 
-export default PWSlider;
+export default ImageSlider;

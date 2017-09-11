@@ -78,16 +78,26 @@ class App extends React.Component {
 
   removePreVote(imageKey) {
     const nominated = {...this.state.nominated};
-    const voted = {...this.state.voted};
-
-    if (Object.keys(voted).length > 0) {
+    let voted = {...this.state.voted};
+    let amountVoted = Object.keys(voted).length;
+    let amountNominated = Object.keys(nominated).length;
+    
+    if (amountVoted > 0) {
       delete voted[imageKey];
       this.setState({ voted });
     }
     
-    if (Object.keys(nominated).length > 0) {
+    if (amountNominated > 0) {
       delete nominated[imageKey];
       this.setState({ nominated });
+    }
+
+    amountVoted = Object.keys(voted).length;
+    amountNominated = Object.keys(nominated).length;
+
+    if (amountVoted > amountNominated) {
+      voted = {...nominated};
+      this.setState({ voted});
     }
   }
 
