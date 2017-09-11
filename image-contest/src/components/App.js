@@ -14,6 +14,7 @@ class App extends React.Component {
     super();
     this.addPreVote = this.addPreVote.bind(this);
     this.loadSampleImages = this.loadSampleImages.bind(this);
+    this.removePreVote = this.removePreVote.bind(this);
     // Initial image-contest state
     this.state = {
       images: {},
@@ -23,7 +24,22 @@ class App extends React.Component {
   }
 
   componentWillMount() {
+    // This runs just before the <App> is rendered
     this.loadSampleImages();
+
+    // Check if there is a prevote in localstorage
+    let localStorageRef = localStorage.getItem('prevote');
+
+    if (localStorageRef) {
+      localStorageRef = JSON.parse(localStorageRef);
+      this.setState({
+        preVotes: localStorageRef
+      });
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    localStorage.setItem('prevote', JSON.stringify(nextState.preVotes));
   }
 
   loadSampleImages() {
@@ -41,14 +57,29 @@ class App extends React.Component {
     this.setState({ preVotes });
   }
 
+  removePreVote(imageKey) {
+    const preVotes = {...this.state.preVotes};
+    delete preVotes[imageKey];
+
+    this.setState({ preVotes});
+  }
+
   render() {
     return (
       <div>
         <Header />
         <ContestNavigation location={this.props.location}/>
         <div className="main-contest">
-          <ContestImages addPreVote={this.addPreVote} images={this.state.images}/>
-          <Voting images={this.state.images} preVotes={this.state.preVotes}/>
+          <ContestImages 
+            addPreVote={this.addPreVote} 
+            images={this.state.images} 
+            preVotes={this.state.preVotes}
+            removePreVote={this.removePreVote}
+          />
+          <Voting 
+            images={this.state.images} 
+            preVotes={this.state.preVotes}
+          />
         </div>
         <Contact />
         <Footer />
