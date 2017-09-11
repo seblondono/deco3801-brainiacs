@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import Navigation from './Navigation';
+import ContestNavigation from './ContestNavigation';
 import ContestImages from './ContestImages';
 import Voting from './Voting';
 import Contact from './Contact';
@@ -45,7 +45,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Navigation />
+        <ContestNavigation location={this.props.location}/>
         <div className="main-contest">
           <ContestImages addPreVote={this.addPreVote} images={this.state.images}/>
           <Voting images={this.state.images} preVotes={this.state.preVotes}/>

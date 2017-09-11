@@ -1,6 +1,7 @@
 @import url("https://auth.uq.edu.au/idp/module.php/uqtheme/css/normalize.css");
 @import url("https://qbi.uq.edu.au/sites/all/themes/custom/uq_standard/css/styles.css?ovm7mr");
 @import url("https://auth.uq.edu.au/idp/module.php/uqtheme/css/uq.css");
+@import url("./image-gallery.css");
 
 /*****************  Contest Images and Voting Preselection *****************/
 .image-contest {
@@ -188,4 +189,83 @@
 .vonting-instructions > ol {
   margin: 0;
   margin-top: 1em;
+}
+
+/***************************************************************************/
+/******************************  Past Winner  ******************************/
+
+#main-menu {
+  min-width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImgDescription h1{
+	margin-top: 3px;
+	font: 24px Helvetica;
+	text-align: center;
+	font-weight: bold;
+}
+
+.ImgDescription h2{
+	font: 20px Helvetica;
+	text-align: center;
+}
+
+.ImgDescription p{
+	font: 15px Helvetica;
+	width: 700px;
+	margin: auto;
+	margin-bottom: 20px;
+	line-height:22px;
+}
+
+.Purchase{
+	font: 15px Helvetica;
+	margin-left:70%;
+	background-color:#6e0b8d;
+	text-decoration: none;
+	padding: 15px 32px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.Purchase:hover{
+	background-color:#6e0b8d;
+}
+
+/***************************************************************************/
+/******************************  Contact  ******************************/
+
+.button--outline {
+  background-color: transparent;
+  border: 2px solid #2377CB;
+  padding: 0.85rem 1.9rem 0.9625rem;
+  border-radius: 0;
+}
+
+.contact-button {
+  min-width: auto;
+  display: inline-block;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #fff;
+  transition: background-color 300ms ease-out;
+}
+
+.contact-button:hover {
+  color: #e6e6e6;
+  background-color: #005ea5;
+  text-decoration: underline;
+  cursor: pointer;
+  outline: 0;
 }

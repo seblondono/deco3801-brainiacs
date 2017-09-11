@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/PastWinner.css';
 
 export default class PWText extends Component{
 	render(){

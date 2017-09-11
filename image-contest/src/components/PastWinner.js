@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import '../css/PastWinner.css';
 import Header from './Header';
-import NavBar from './PWNavBar';
+import ContestNavigation from './ContestNavigation';
 import Contact from './Contact';
 import Footer from './Footer';
 import PWSlider from './PWSlider';
@@ -13,13 +12,11 @@ class  PastWinner extends Component {
     return (
       <div className="PastWinner">
           <Header />
-          <NavBar />
+          <ContestNavigation location={this.props.location}/>
           <PWSlider />
           <PWText />
           <Contact />
           <Footer /> 
-         
-
       </div>
     );
   }

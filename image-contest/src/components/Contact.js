@@ -60,7 +60,7 @@ const Contact = (props) => {
                                         <div className="field field-name-field-uq-pane-content field-type-text-long field-label-hidden">
                                             <div className="field-items">
                                                 <div className="field-item even">
-                                                <p><a className="button button--outline" href="https://www.uq.edu.au/giving/donations/fund/990049" target="_blank" rel="noopener noreferrer">Donate</a></p>
+                                                <p><a className="button button--outline contact-button" href="https://www.uq.edu.au/giving/donations/fund/990049" target="_blank" rel="noopener noreferrer">Donate</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@ const Contact = (props) => {
                                         <div className="field field-name-field-uq-pane-content field-type-text-long field-label-hidden">
                                             <div className="field-items">
                                                 <div className="field-item even">
-                                                <p><a className="button button--outline" href="/get-involved/qbi-newsletters"><span className="icon icon-pencil-square-o"></span>  Sign up</a></p>
+                                                <p><a className="button button--outline contact-button" href="/get-involved/qbi-newsletters"><span className="icon icon-pencil-square-o"></span>  Sign up</a></p>
                                                 </div>
                                             </div>
                                         </div>
