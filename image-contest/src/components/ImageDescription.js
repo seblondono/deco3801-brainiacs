@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class PWText extends Component{
+export default class ImageDescription extends Component{
 	render(){
 
 		const imagesKeys = Object.keys(this.props.images);
@@ -9,11 +9,10 @@ export default class PWText extends Component{
 
 		return(
 			<div className='image-details'>
-			<h1>{image.imageTitle}</h1>
-			<p>{image.imageDesc}</p>
-			<button className='buy-button'>Buy</button>
+				<h1>{image.imageTitle}</h1>
+				<p>{image.imageDesc}</p>
+				<button className='buy-button'>Buy</button>
 			</div>
-
 			)
 	}
 }

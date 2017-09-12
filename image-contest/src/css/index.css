@@ -334,7 +334,7 @@
 }
 
 /***************************************************************************/
-/******************************  Contact  ******************************/
+/********************************  Contact  ********************************/
 
 .button--outline {
   background-color: transparent;
@@ -365,4 +365,67 @@
   text-decoration: underline;
   cursor: pointer;
   outline: 0;
+}
+
+/***************************************************************************/
+/********************************  Sing up  ********************************/
+
+.sign-on__select {
+  margin: 0;
+  height: 3.5rem;
+  padding: 0 1.5rem;
+  border: 0;
+  box-shadow: none;
+}
+
+.terms > p {
+  padding: 0 1.5em;
+}
+
+/***************************************************************************/
+/********************************  Submit  *********************************/
+
+#rn_PageContent {
+  max-width: 1140px;
+  min-height: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.submit-title {
+  width: 90%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  margin: 1em auto;
+  text-align: center;
+}
+
+#rn_FormSubmit_15_Button {
+  min-width: min-content;
+  margin: 0;
+  margin-top: 1em;
+  padding: 0.5em 1.2em;
+  border-radius: 4px;
+  font-weight: 300;
+  line-height: 1em;
+  letter-spacing: normal;
+  background-color: #2377CB;
+  border-color: transparent;
+  color: #fff;
+}
+
+#rn_FormSubmit_15_Button:hover {
+  background-color: #1C66B0;
+  color: #fff;
+}
+
+#rn_FormSubmit_15 {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.rn_Padding {
+  width: 60%;
 }
