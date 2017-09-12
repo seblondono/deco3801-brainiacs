@@ -17,7 +17,17 @@ class ContestImages extends React.Component {
                 return images;
             }, {});
         } else {
-            images = this.props.preVoted;
+            const preVotedKeys = Object.keys(this.props.preVoted);
+            images = preVotedKeys.reduce((images, key) => {
+                let image = this.props.images[key];
+                if (!this.props.voted.hasOwnProperty(key)) {
+                    image.selected = false;
+                }
+
+                images[key] = image;
+
+                return images;
+            }, {});
         }
 
         return (

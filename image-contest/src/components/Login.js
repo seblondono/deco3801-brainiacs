@@ -48,7 +48,7 @@ class Login extends React.Component {
                           <a href="https://www.uq.edu.au/password/reset">Forgot your password?</a>
                       </div>
                       <div className="sign-on__footer-terms small-12 medium-12 large-6 columns">
-                          <a href="https://ppl.app.uq.edu.au/content/6.20.01-acceptable-use-uq-ict-resources">Terms of use</a>
+                          <a href="/image-contest/signup">Sign up now</a>
                       </div>
                     </div>
                 </div>
