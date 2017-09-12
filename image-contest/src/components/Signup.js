@@ -1,14 +1,17 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+// Sign up component. For general public users that do not have an account
 class Signup extends React.Component {
-goToContest(e) {
+  // Manage routing to vonting home page
+  goToContest(e) {
     e.preventDefault();
     this.props.history.push('/image-contest/vote');
   }
- render() {
-   const date = new Date();
-   const today = date.toISOString().substring(0,10);
+
+  render() {
+    const date = new Date();
+    const today = date.toISOString().substring(0,10);
     return (
       <div>
         <div className="site-header">

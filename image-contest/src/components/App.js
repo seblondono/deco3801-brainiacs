@@ -9,6 +9,8 @@ import sampleImages from '../sample-images';
 
 import '../css/index.css';
 
+
+// Main webasite component where the voting process will take part
 class App extends React.Component {
   constructor() {
     super();
@@ -16,6 +18,7 @@ class App extends React.Component {
     this.loadSampleImages = this.loadSampleImages.bind(this);
     this.removePreVote = this.removePreVote.bind(this);
     this.addVotes = this.addVotes.bind(this);
+
     // Initial image-contest state
     this.state = {
       images: {},
@@ -29,10 +32,11 @@ class App extends React.Component {
     // This runs just before the <App> is rendered
     this.loadSampleImages();
 
-    // Check if there is a prevote in localstorage
+    // Check if there is a prevote or vote in localstorage
     let localStorageNominated = localStorage.getItem('nominated');
     let localStorageVoted = localStorage.getItem('voted');
 
+    // Save value from localstorage into applications state
     if (localStorageNominated) {
       localStorageNominated = JSON.parse(localStorageNominated);
       this.setState({
@@ -48,25 +52,28 @@ class App extends React.Component {
     }
   }
 
+  // Before the component mount set the state at localstorage
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem('nominated', JSON.stringify(nextState.nominated));
     localStorage.setItem('voted', JSON.stringify(nextState.voted));
   }
 
+  // Load sample images into application's state
   loadSampleImages() {
     this.setState({
       images: sampleImages
     });
   }
 
+  // Adde images tp nominated and voted state
   addPreVote(imageKey) {
-    // update our state
+    // Copy the state
     const nominated = {...this.state.nominated};
     const preVoted = {...this.state.preVoted};
     const voted = {...this.state.voted};
 
     if (Object.keys(preVoted).length === 0) {
-      // add our the image to the nominated state
+      // add the image to the nominated state
       nominated[imageKey] = imageKey;
       // set state
       this.setState({ nominated });
@@ -76,6 +83,8 @@ class App extends React.Component {
     }
   }
 
+  // remove nominated images from preVoted state
+  // or from voted state
   removePreVote(imageKey) {
     const nominated = {...this.state.nominated};
     let voted = {...this.state.voted};
@@ -92,6 +101,7 @@ class App extends React.Component {
       this.setState({ nominated });
     }
 
+    // There cannot be voted images if there are no nominated images
     amountVoted = Object.keys(voted).length;
     amountNominated = Object.keys(nominated).length;
 
@@ -101,6 +111,7 @@ class App extends React.Component {
     }
   }
 
+  // Copy nominated state to preVoted in order to make final voting possible
   addVotes(nominated) {
     let preVoted = {...this.state.preVoted};
     preVoted = {...nominated};
@@ -108,12 +119,14 @@ class App extends React.Component {
     this.setState({ preVoted });
   }
 
+  // Render the application
   render() {
     return (
       <div>
         <Header />
         <ContestNavigation location={this.props.location}/>
         <div className="main-contest">
+          {/* Pass props to child components */}
           <ContestImages 
             addPreVote={this.addPreVote} 
             images={this.state.images} 
@@ -122,6 +135,7 @@ class App extends React.Component {
             preVoted={this.state.preVoted}
             voted={this.state.voted}
           />
+          {/* Pass props to child components */}
           <Voting 
             images={this.state.images} 
             addVotes={this.addVotes}

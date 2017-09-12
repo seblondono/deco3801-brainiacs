@@ -2,6 +2,7 @@ import React from 'react';
 
 // This is the core compenent of the application
 // It displays and Image together with a title and a description
+// Allows user to nominate or vote for an image
 
 class ImageCard extends React.Component {
     constructor() {
@@ -9,6 +10,8 @@ class ImageCard extends React.Component {
         this.nominate = this.nominate.bind(this);
     }
 
+    // Nominate or remove selected image based in user input
+    // Update plus or checked icon accordingly
     nominate(e) {
         const nominated = this.props.imageDetails.selected;
 
@@ -21,8 +24,8 @@ class ImageCard extends React.Component {
         }
     }
 
+    // Render selected images based on data saved at localstorage
     componentWillMount() {
-        // Renders the checked icons if nominated come from local storage and not from user interaction
         const checked = this.props.nominated.hasOwnProperty(this.props.imageKey);
         if (checked) {
             this.props.imageDetails.selected = true;
@@ -32,6 +35,7 @@ class ImageCard extends React.Component {
     render() {
         // If image is selected then the icon changes to checked
         const selected = this.props.imageDetails.selected === false ? "fa fa-plus" : "fa fa-check";
+        // Display image as background to avoid image warping
         const imageBackground = {
             backgroundImage: 'url(' + this.props.imageDetails.imageURL + ')',
             backgroundRepeat: 'no-repeat',

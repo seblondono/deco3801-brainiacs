@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+// Voting component. To be render in the right hand side of the voting home page
 class Voting extends React.Component {
     constructor(){
         super();
@@ -9,14 +10,17 @@ class Voting extends React.Component {
         this.goBack = this.goBack.bind(this);
     }
 
+    // Navigate to the voting home page
     goBack() {
         window.location.reload();
     }
 
+    // Add nominated images to the preVoted state
     vote() {
         this.props.addVotes(this.props.nominated);
     }
 
+    // Render images selected by user
     renderImages(key) {
         const image = this.props.images[key];
         const imageBackground = {
@@ -37,6 +41,7 @@ class Voting extends React.Component {
     }
 
     render() {
+        // Variables for flow control of votimg component
         const nominated = Object.keys(this.props.nominated);
         const preVoted = Object.keys(this.props.preVoted);
         const voted = Object.keys(this.props.voted);
@@ -44,6 +49,7 @@ class Voting extends React.Component {
         const notPrevoted = preVoted.length === 0 ? true : false;
         const notVoted = voted.length === 0 ? true : false;
 
+        // If user has not nominated nor voted for any image
         if (notNominated && notPrevoted) {
             return (
                 <div className="voting">
@@ -60,7 +66,7 @@ class Voting extends React.Component {
                     <button className="nominate" disabled={notNominated}>Nominate</button>
                 </div> 
             )
-        } else if (!notNominated && notPrevoted) {
+        } else if (!notNominated && notPrevoted) { // If user has started nominated but not voted any images
             return (
                 <div className="voting">
                 <h1>Nominate Images</h1>
@@ -70,7 +76,7 @@ class Voting extends React.Component {
                 <button className="nominate" onClick={this.vote}>Nominate</button>
             </div>
             )
-        } else if (!notNominated && !notPrevoted) {
+        } else if (!notNominated && !notPrevoted) { // If user has finished nominated and has stated voting
             if (notVoted) {
                 return (
                     <div className="voting">
@@ -92,7 +98,7 @@ class Voting extends React.Component {
                 )
             }  
         }
-
+        //  If user is voting images
         return (
             <div className="voting">
                 <h1>Vote Images</h1>

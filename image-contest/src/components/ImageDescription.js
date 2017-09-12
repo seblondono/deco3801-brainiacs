@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export default class ImageDescription extends Component{
+// Image details to be rendered at the bottom of the previous winners page
+class ImageDescription extends React.Component {
 	render(){
-
+		// Image details
 		const imagesKeys = Object.keys(this.props.images);
+		// Index of image being displayed in ImageSlider
 		const imageKey = imagesKeys[this.props.currentIndex];
 		const image = this.props.images[imageKey];
 
@@ -13,6 +15,8 @@ export default class ImageDescription extends Component{
 				<p>{image.imageDesc}</p>
 				<button className='buy-button'>Buy</button>
 			</div>
-			)
+		)
 	}
 }
+
+export default ImageDescription;

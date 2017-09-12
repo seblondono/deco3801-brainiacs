@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Stateless component. To be rendered at the bottom of the page
 const Footer = (props) => {
     return (
         <div id="site-footer" className="site-footer">

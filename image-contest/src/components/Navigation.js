@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Stateless component. To be rendered in about and contact pages
 const Navigation = (props) => {
   return (
     <div className="navigation">

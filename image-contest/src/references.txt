@@ -7,13 +7,3 @@ Linked in logo -> https://qbi.uq.edu.au/files/19690/greygrey_lin.jpg
 SoundCloud logo -> https://qbi.uq.edu.au/files/19696/greygrey_scloud.png
 Twitter logo -> https://qbi.uq.edu.au/files/19702/greygrey_tw.jpg
 YouTube logo -> https://qbi.uq.edu.au/files/19708/greygrey_YT.jpg
-
-/************************************************************************************/
-Header classes not found yet
-
-hide-for-small-only
-global-menu__item
-columns medium-11 large-8 // Bootstrap?!
-
-
-/************************************************************************************/

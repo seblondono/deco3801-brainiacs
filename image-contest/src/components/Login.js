@@ -1,8 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+// Login for general public, QBI researchers and UQ students
+// Uses the react-router-dom library
 class Login extends React.Component {
 
+  // Manage routing once user click in login button
   goToContest(e) {
     e.preventDefault();
     this.props.history.push('/image-contest/vote');
@@ -34,6 +37,7 @@ class Login extends React.Component {
                 </div>
                 <div className="row">
                     <div className="sign-on__content">
+                      {/* Navigate to voting home page */}
                       <form className="sign-on__form" action="?" method="post" name="f" onSubmit={(e) => this.goToContest(e)}>
                           <label htmlFor="username" className="sign-on__form-label">Username</label>
                           <input type="text" id="username" tabIndex="1" name="username" title="username" placeholder="username" autoFocus/>                    

@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Stateless component. To be render at the top of the website
 const Header = (props) => {
     return (
         <div className="site-header">

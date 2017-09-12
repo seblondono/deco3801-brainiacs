@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 import sampleImages from '../sample-images';
 
-
+// Pass winner parent component. TO be rendered in the past winner page.
 class  PastWinner extends Component {
   constructor() {
     super();
@@ -30,6 +30,7 @@ class  PastWinner extends Component {
     this.loadSampleImages();
   }
 
+  // Get index of image being displayed at slider
   getCurrentIndex(imageIndex) {
     const currentIndex = imageIndex;
 
@@ -38,6 +39,7 @@ class  PastWinner extends Component {
     }
   }
 
+  // Load sample state images
   loadSampleImages() {
     this.setState({
       images: sampleImages
