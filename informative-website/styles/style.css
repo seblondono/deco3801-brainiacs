@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans+Condensed|Merriweather|Roboto|Roboto+Condensed');
+
+/* font-family: 'Roboto', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
+font-family: 'Encode Sans Condensed', sans-serif;
+font-family: 'Merriweather', serif; */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav {
+    width: 100vw;
+    height: max-content;
+    font-family: 'Roboto Condensed', sans-serif;
+    background-color: #fff;
+    color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    z-index: 9;
+}
+
+nav > ul {
+    width: max-content;
+    margin: 0 1em;
+    padding: 0;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+nav > ul > li {
+    padding: 0.6em 0.9em;
+}
+
+section {
+    z-index: 1;
+}
+
+.intro {
+    background-image: url("https://deco3801-brainiacs.uqcloud.net/images/The%20Visual%20Brain.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.odd-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.even-section {
+    width: 100vw;
+    height: 100vh;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#project-name {
+    width: fit-content;
+    height: max-content;
+    font-size: 4em;
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+}
+
