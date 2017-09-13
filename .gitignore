@@ -1,7 +1,7 @@
 previous_repo/ExampleImages/
 
 image-contest/package-lock\.json
-image-contest/nohup.out
+nohup.out
 
 *.pyc
 backend/db\.sqlite3
