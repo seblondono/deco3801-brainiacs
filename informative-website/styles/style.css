@@ -18,8 +18,8 @@ nav {
     width: 100vw;
     height: max-content;
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,24 +38,39 @@ nav > ul {
 }
 
 nav > ul > li {
+    margin: 0;
+    padding: 0;
+}
+
+nav > ul > li > a {
+    display: block;
+    color: #fff;
     padding: 0.6em 0.9em;
+    text-decoration: none;
+}
+
+nav > ul > li > a:hover {
+    text-decoration: underline;
+}
+
+nav > ul > li > a:visited {
+    color: lightcyan;
+}
+
+nav > ul > li > a:active {
+    color: darkorange;
+    text-decoration: underline;
 }
 
 section {
     z-index: 1;
 }
 
-.intro {
-    background-image: url("https://deco3801-brainiacs.uqcloud.net/images/The%20Visual%20Brain.jpg");
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .odd-section {
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
+    padding: 2em 9em;
+    background-color: #f7f7f7;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,18 +79,69 @@ section {
 .even-section {
     width: 100vw;
     height: 100vh;
-    background-color: #f7f7f7;
+    padding: 2em 9em;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
-#project-name {
+#intro {
+    background-image: url("https://deco3801-brainiacs.uqcloud.net/images/The%20Visual%20Brain.jpg");
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#intro > h1 {
     width: fit-content;
     height: max-content;
+    margin-bottom: 0.6em;
     font-size: 4em;
     font-weight: 400;
     color: #fff;
     text-align: center;
+}
+
+/* #intro > h4 {
+    margin-bottom: 1em;
+    font-size: 2em;
+    color: #fff;
+}
+
+#intro > h3 {
+    font-size: 3em;
+    color: #fff;
+} */
+
+#image-contest > article {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#image-contest img {
+    width: 100%;
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#image-contest article div:first-child {
+    width: 30%;
+}
+
+#image-contest article div:nth-child(2) {
+    width: 70%;
+    padding: 0.5em 3.5em;
+}
+
+#image-contest p {
+    margin: 0.9em 0;
+    line-height: 1.5em;
 }
 
