@@ -16,8 +16,12 @@ Including another URLconf
 from django.conf.urls import include,url
 from django.contrib import admin
 
-urlpatterns = [
+internal_patterns = [
     url(r'^admin/', admin.site.urls),
-	url(r'',include('api_app.urls')),
-	url(r'',include('info_site_app.urls')),
+    url(r'',include('api_app.urls')),
+    url(r'',include('info_site_app.urls')),
+]
+
+urlpatterns = [
+    url(r'^backend/',include(internal_patterns))
 ]
