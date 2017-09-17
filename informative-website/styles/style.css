@@ -18,7 +18,7 @@ nav {
     width: 100vw;
     height: max-content;
     font-family: 'Roboto Condensed', sans-serif;
-    background-color: #000;
+    background-color: #222;
     color: #fff;
     position: fixed;
     top: 0;
@@ -27,6 +27,19 @@ nav {
     flex-flow: row nowrap;
     justify-content: flex-end;
     z-index: 9;
+}
+
+nav p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    vertical-align: middle;
+    margin: 0 1em;
+    padding: 0.6em 0;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 500;
 }
 
 nav > ul {
@@ -50,16 +63,11 @@ nav > ul > li > a {
 }
 
 nav > ul > li > a:hover {
-    text-decoration: underline;
+    color: #666;
 }
 
-nav > ul > li > a:visited {
-    color: lightcyan;
-}
-
-nav > ul > li > a:active {
-    color: darkorange;
-    text-decoration: underline;
+nav > ul > li > a.active {
+    color: #666;
 }
 
 section {
@@ -87,7 +95,7 @@ section {
 }
 
 #intro {
-    background-image: url("https://deco3801-brainiacs.uqcloud.net/images/The%20Visual%20Brain.jpg");
+    background-image: url("https://deco3801-brainiacs.uqcloud.net/images/BrainSTORM.jpg");
     background-position: top center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -101,10 +109,15 @@ section {
     width: fit-content;
     height: max-content;
     margin-bottom: 0.6em;
-    font-size: 4em;
+    font-size: 6em;
     font-weight: 400;
     color: #fff;
     text-align: center;
+    text-shadow: 0 -3px 0 #333,
+    0 6px 8px rgba(0,0,0,.4),
+    0 9px 10px rgba(0,0,0,.15),
+    0 30px 10px rgba(0,0,0,.18),
+    0 15px 10px rgba(0,0,0,.21);
 }
 
 /* #intro > h4 {
@@ -217,14 +230,22 @@ form textarea {
 }
 
 form input[type="submit"] {
+    min-width: min-content;
+    margin-right: 2.5em;
+    margin-top: 2.5em;
+    padding: 0.5em 0.6em;
     font-size: 0.8em;
-    margin-right: 3.3em;
-    padding: 0.5em 0.7em;
-    align-self: flex-end;
-    background-color: #000;
-    color: #fff;
     text-transform: uppercase;
+    align-self: flex-end;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    background-color: #bf0000;
+}
 
+form input[type='submit']:hover {
+    cursor: pointer;
+    background-color: #ff0000;
 }
 
 #contact article div:first-child {
@@ -311,4 +332,98 @@ label > span {
     position: absolute;
     left: -9999px;
     top: -9999px;
+}
+
+#about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#about div:first-child {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    height: 70%;
+    margin: 1em 0;
+    padding: 0.5em 0;
+    padding-right: 1em;
+}
+
+#about div:nth-child(2) {    
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 50%;
+    height: 70%;
+    margin: 1em 0;
+    padding: 0.5em 0;
+    padding-left: 1em;
+}
+
+#about p {
+    margin: 0.9em 0;
+    line-height: 1.5em;
+}
+
+#about div a {
+    /* align-self: flex-end; */
+    margin-top: 1.5em;
+    font-family: 'Roboto Condensed', sans-serif;
+    min-width: min-content;
+    padding: 0.5em 0.6em;
+    text-decoration: none;
+    color: #fff;
+    background-color: #bf0000;
+}
+
+#about div:nth-child(2) a {
+    align-self: flex-end;
+}
+
+#about div a:hover {
+    cursor: pointer;
+    background-color: #ff0000;
+}
+
+footer {
+    width: 100vw;
+    height: 5vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer p {
+    font-family: 'Roboto Condensed', sans-serif;
+    color: #fff;
+    margin: 0;
+    line-height: 1.5em;
+}
+
+.fa.fa-angle-down.fa-4x.intro {
+    color: #fff;
+    transform: translateY(250%);
+}
+
+.fa.fa-angle-down.fa-4x.image-contest {
+    color: black;
+    align-self: flex-end;
+    transform: translateX(-1165%);
+}
+
+.fa.fa-angle-down.fa-4x.voting-system {
+    color: black;
+    align-self: flex-end;
+    transform: translateX(-1165%);
+}
+
+.fa.fa-angle-down.fa-4x.about {
+    color: black;
+    align-self: flex-end;
+    transform: translateX(-1165%);
 }
