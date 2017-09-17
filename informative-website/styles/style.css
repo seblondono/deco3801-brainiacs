@@ -245,3 +245,70 @@ form input[type="submit"] {
 label > span {
     font-size: 0.8em;
 }
+
+.social-icons {
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+  
+.tab {
+    margin-right: 10px;
+    border-radius: 0 0 25px 25px;
+    float: left;
+}
+
+.fa-facebook, .fa-twitter, .fa-google-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+    border: 1px solid;
+    border-radius: 50%;
+}
+
+.fa-facebook::before, .fa-twitter::before, .fa-google-plus::before {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(70%);
+}
+
+.fa-facebook {
+    color: hsl(221, 44%, 41%);
+    border-color: hsl(221, 44%, 41%);
+}
+
+.fa-facebook:hover {
+    color: #fff;
+    background-color: hsl(221, 44%, 41%);
+}
+
+.fa-twitter {
+    color: hsl(195, 100%, 60%);
+    border-color: hsl(195, 100%, 60%);
+}
+
+.fa-twitter:hover {
+    color: #fff;
+    background-color: hsl(195, 100%, 60%);
+}
+
+.fa-google-plus {
+    color: hsl(7, 71%, 55%);
+    border-color: hsl(7, 71%, 55%);
+}
+
+.fa-google-plus:hover {
+    color: #fff;
+    background-color: hsl(7, 71%, 55%);
+}
+
+.screen-reader {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
