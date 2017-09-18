@@ -155,8 +155,31 @@ function formValidation(e) {
 
 }
 
+
 form.addEventListener("submit", (e) => formValidation(e));
 
+
+//Back to Top Button
+window.addEventListener('scroll', (e) => scrollFunction(e));
+
+function scrollFunction(e) {
+    e.preventDefault();
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+}
+
+const myButton = document.querySelector('#myBtn');
+
+function topFunction(e) {
+    e.preventDefault();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+// When the user clicks on the button, back to the top
+myButton.addEventListener('click', () => {document.querySelector('#intro').scrollIntoView();});
 
 
 
