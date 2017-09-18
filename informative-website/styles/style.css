@@ -82,6 +82,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 2s;
 }
 
 .even-section {
@@ -92,6 +93,7 @@ section {
     display: flex;
     justify-content: center;
     align-content: center;
+    transition: all 2s;
 }
 
 #intro {
@@ -119,17 +121,6 @@ section {
     0 30px 10px rgba(0,0,0,.18),
     0 15px 10px rgba(0,0,0,.21);
 }
-
-/* #intro > h4 {
-    margin-bottom: 1em;
-    font-size: 2em;
-    color: #fff;
-}
-
-#intro > h3 {
-    font-size: 3em;
-    color: #fff;
-} */
 
 #image-contest > article {
     display: flex;
@@ -370,8 +361,8 @@ label > span {
 }
 
 #about div a {
-    /* align-self: flex-end; */
-    margin-top: 1.5em;
+    position: relative;
+    bottom: 0;
     font-family: 'Roboto Condensed', sans-serif;
     min-width: min-content;
     padding: 0.5em 0.6em;
@@ -407,23 +398,57 @@ footer p {
 
 .fa.fa-angle-down.fa-4x.intro {
     color: #fff;
-    transform: translateY(250%);
+    position: relative;
+    top: 2.3em;
+    right: 0.3em;
+    animation: arrow 5s infinite ease-in;
+    opacity: 1;
 }
 
 .fa.fa-angle-down.fa-4x.image-contest {
     color: black;
-    align-self: flex-end;
-    transform: translateX(-1165%);
+    position: relative;
+    top: 9.5em;
+    right: 50%;
+    animation: arrow 5s infinite ease-in;
+    opacity: 1;
 }
 
 .fa.fa-angle-down.fa-4x.voting-system {
     color: black;
-    align-self: flex-end;
-    transform: translateX(-1165%);
+    position: relative;
+    top: 4.8em;
+    right: 50%;
+    animation: arrow 5s infinite ease-in;
+    opacity: 1;
 }
 
 .fa.fa-angle-down.fa-4x.about {
     color: black;
-    align-self: flex-end;
-    transform: translateX(-1165%);
+    position: relative;
+    top: 4.8em;
+    right: 50%;
+    animation: arrow 5s infinite ease-in;
+    opacity: 1;
+}
+
+.fa.fa-angle-down.fa-4x:hover {
+    cursor: pointer;
+}
+
+@keyframes arrow {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(0, 50px);
+    }
 }
