@@ -155,31 +155,24 @@ function formValidation(e) {
 
 }
 
-
 form.addEventListener("submit", (e) => formValidation(e));
 
 
-//Back to Top Button
-window.addEventListener('scroll', (e) => scrollFunction(e));
+//Scroll back to top
+window.addEventListener('scroll', debounce(scrollToTop));
 
-function scrollFunction(e) {
-    e.preventDefault();
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        document.getElementById("myBtn").style.display = "block";
+function scrollToTop(e) {
+    console.log(document.body.scrollTop);
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+        document.getElementById("back-to-top").style.display = "block";
     } else {
-        document.getElementById("myBtn").style.display = "none";
+        document.getElementById("back-to-top").style.display = "none";
     }
 }
 
-const myButton = document.querySelector('#myBtn');
+const toTop = document.querySelector('#back-to-top');
 
-function topFunction(e) {
-    e.preventDefault();
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
-}
-// When the user clicks on the button, back to the top
-myButton.addEventListener('click', () => {document.querySelector('#intro').scrollIntoView();});
+toTop.addEventListener('click', () => {intro.scrollIntoView();});
 
 
 
