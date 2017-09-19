@@ -152,21 +152,26 @@ function formValidation(e) {
             textarea.style.border = error;
         } else {
             var formData = JSON.stringify($("#CommentForm").serializeArray());
-            $.ajax({
+            console.log(formData);
+		$.ajax({
                 type:"POST",
-                url:"/backend/info_form_submit",
+                url:"/backend/info_form_submit/",
                 data:{
                     'data':formData
                 },
-                success.function(data){
+                success: function(data){
                     console.log(data.message);
-                }
+                },
+		error: function(){
+		console.log("ERROR");
+		}
             });
         }
     }
+	return false;
 }
 
-form.addEventListener("submit", (e) => formValidation(e));
+form.addEventListener("submit", formValidation);
 
 
 //Scroll back to top
