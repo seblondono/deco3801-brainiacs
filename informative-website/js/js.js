@@ -150,9 +150,20 @@ function formValidation(e) {
         }
         if (!textarea.value) {
             textarea.style.border = error;
+        } else {
+            var formData = JSON.stringify($("#CommentForm").serializeArray());
+            $.ajax({
+                type:"POST",
+                url:"/backend/info_form_submit",
+                data:{
+                    'data':formData
+                },
+                success.function(data){
+                    console.log(data.message);
+                }
+            });
         }
     }
-
 }
 
 form.addEventListener("submit", (e) => formValidation(e));

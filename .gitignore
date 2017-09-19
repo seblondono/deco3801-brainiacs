@@ -5,3 +5,5 @@ nohup.out
 static/
 *.pyc
 backend/db\.sqlite3
+
+backend/info_site_app/migrations/
