@@ -6,8 +6,10 @@ def get_time():
 	return timezone.now().replace(microsecond=0)
 
 class Visit(models.Model):
-	time = models.DateTimeField(default=get_time)
-
+	time = models.DateTimeField(unique=True)
+	count = models.IntegerField(default=0)
+	def __str__(self):
+		return " | ".join([str(self.time), str(self.count)])
 class InfoForm(models.Model):
 	time = models.DateTimeField(default=get_time)
 	fname = models.TextField(null=True, blank = True)

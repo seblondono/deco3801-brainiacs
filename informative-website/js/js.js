@@ -1,8 +1,37 @@
+$(document).ready(function(){
 // Intro background
 const intro = document.querySelector('#intro');
 const images = ['url("https://deco3801-brainiacs.uqcloud.net/images/The%20Visual%20Brain.jpg")',
 'url("https://deco3801-brainiacs.uqcloud.net/images/BrainSTORM.jpg")',
 'url("https://deco3801-brainiacs.uqcloud.net/images/Interconnectivity%20%E2%80%93%20Dance%20of%20SNAREs%20In%20The%20Dark.jpg")'];
+
+function checkVisit(){
+	let date = new Date();
+	let day = date.getDate();
+	let month = date.getMonth();
+	let year = date.getYear();
+	let visit = String(day)+"/"+String(month)+ "/"+String(year);
+	if (visit != localStorage.getItem("lastBrainVisit")){
+	$.ajax({
+                type:"POST",
+                url:"/backend/new_visit/",
+                data:'info-visit',
+                success: function(data){
+                    console.log(data.message);
+                localStorage.setItem("lastBrainVisit", visit);
+
+                },
+		error: function(){
+		console.log("ERROR");
+		}
+            });
+	
+	}else{
+		console.log("Been here today already");
+	}
+}
+checkVisit();
+
 
 let random = 0;
 function getRandomImage() {
@@ -126,31 +155,37 @@ function formValidation(e) {
         element.style.border = noError;
     }
 
-    if (!name.value && !lastName.value && !emailAddress.value && !textarea.value) {
+    if (!name.value && !lastName.value && !textarea.value) {
         console.log("please fill in the form before submission.");
         name.style.border = error;
         lastName.style.border = error;
         emailAddress.style.border = error;
         textarea.style.border = error;
     } else {
+	var dosubmit=true;
         if (!name.value || !name.value.match(nameRegex)) {
             name.style.border = error;
             name.value = '';
             name.placeholder = 'Please enter a valid name. Only letters are allowed.';
+            dosubmit=false;
         }
         if (!lastName.value || !name.value.match(nameRegex)) {
             lastName.style.border = error;
             lastName.value = '';
             lastName.placeholder = 'Please enter a valid last name. Only letters are allowed.';
+            dosubmit=false;
         }
-        if (!emailAddress.value || !emailAddress.value.match(emailRegex)) {
+        if (emailAddress.value!='' && !emailAddress.value.match(emailRegex)) {
             emailAddress.style.border = error;
             emailAddress.value = '';
             emailAddress.placeholder = 'Please enter a valid email address. e.g youremail@youremailprovider.com';
+            dosubmit=false;
         }
         if (!textarea.value) {
             textarea.style.border = error;
-        } else {
+            dosubmit=false;
+        }
+	if (dosubmit) {
             var formData = JSON.stringify($("#CommentForm").serializeArray());
             console.log(formData);
 		$.ajax({
@@ -166,7 +201,9 @@ function formValidation(e) {
 		console.log("ERROR");
 		}
             });
-        }
+        } else {
+		console.log("Not Submitted")
+	}
     }
 	return false;
 }
@@ -189,7 +226,7 @@ function scrollToTop(e) {
 const toTop = document.querySelector('#back-to-top');
 
 toTop.addEventListener('click', () => {intro.scrollIntoView();});
-
+});
 
 
 
