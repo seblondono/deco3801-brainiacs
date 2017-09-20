@@ -1,6 +1,6 @@
 $(document).ready(function(){
  $.jqplot.config.enablePlugins = true;	
-	$.get("https://deco3801-brainiacs.uqcloud.net/backend/data/visits", function(data, status){
+	$.get("/backend/data/visits", function(data, status){
 		if (status=="success"){
 			visits= JSON.parse(data);
 			graph(visits);	
@@ -34,7 +34,7 @@ console.log(visits)
  
 }
 
-$.get("https://deco3801-brainiacs.uqcloud.net/backend/data/comments",function(data, status){
+$.get("/backend/data/comments",function(data, status){
 	if (status=="success"){
 		comments=JSON.parse(data);
 		commentTable(comments);
