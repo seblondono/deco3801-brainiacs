@@ -23,7 +23,7 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    display: flex;
+    display: flex !important;
     flex-flow: row nowrap;
     justify-content: flex-end;
     z-index: 9;
