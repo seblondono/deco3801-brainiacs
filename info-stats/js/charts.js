@@ -21,7 +21,7 @@ console.log(visits)
 		label:'Day',
                 renderer: $.jqplot.DateAxisRenderer,
 		tickOptions:{formatString:'%b %#d'},
-		tickInterval: '1 day',
+		
             },
 		yaxis:{label:"Visits",
 		min:0,
