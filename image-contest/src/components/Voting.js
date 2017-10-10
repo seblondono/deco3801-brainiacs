@@ -47,7 +47,7 @@ class Voting extends React.Component {
                         <div className="voting-instructions">
                             <p>Steps of the voting process:</p>
                             <ol>
-                                <li>Select your 3 favorite images in order of preference.</li>
+                                <li>Select up to 3 favorite images in order of preference by clicking in the plus icon.</li>
                                 <li>Click on vote.</li>
                             </ol>
                         </div>

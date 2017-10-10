@@ -3,7 +3,7 @@ import Header from './Header';
 import ContestNavigation from './ContestNavigation';
 import ContestImages from './ContestImages';
 import Voting from './Voting';
-import Contact from './Contact';
+// import Contact from './Contact';
 import Footer from './Footer';
 import sampleImages from '../sample-images';
 
@@ -17,6 +17,7 @@ class App extends React.Component {
     this.loadSampleImages = this.loadSampleImages.bind(this);
     this.addVote = this.addVote.bind(this);
     this.removeVote = this.removeVote.bind(this);
+    this.shuffle = this.shuffle.bind(this);
     
     // Initial image-contest state
     this.state = {
@@ -27,7 +28,8 @@ class App extends React.Component {
 
   componentWillMount() {
     // This runs just before the <App> is rendered
-    this.loadSampleImages();
+    let images = this.shuffle(sampleImages);
+    this.loadSampleImages(images);
 
     // Check if there previously vote images in localstorage
     let localStorageVoted = localStorage.getItem('voted');
@@ -46,10 +48,31 @@ class App extends React.Component {
   }
 
   // Load sample images into application's state
-  loadSampleImages() {
+  loadSampleImages(images) {
     this.setState({
-      images: sampleImages
+      images: images
     });
+  }
+
+  // Shuffles images to prevent bias in image contest page
+  shuffle(o){
+    // Get keys of object
+    const images = Object.keys(o);
+    // Shuffle the keys
+    for (var i = images.length - 1; i > 0; i -= 1) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = images[i];
+      images[i] = images[j];
+      images[j] = temp;
+    }
+
+    // Rebuild object with randomised key order
+    let shuffledImages = {};
+    images.forEach((image) => {
+      shuffledImages[image] = o[image];
+    });
+
+    return shuffledImages;
   }
 
   // Add images to voted state
@@ -76,6 +99,7 @@ class App extends React.Component {
       <div>
         <Header />
         <ContestNavigation location={this.props.location}/>
+        <h1 id='competitionTitle'>Art in Neurscience 2017</h1>
         <div className="main-contest">
           {/* Pass props to child components */}
           <ContestImages 
@@ -90,7 +114,20 @@ class App extends React.Component {
             voted={this.state.voted}
           />
         </div>
-        <Contact />
+        <div className="modal">
+          <span className="close" 
+                onClick={() => {document.querySelector(".modal").style.display="none"}}>
+                &times;
+          </span>
+          <div>
+            <img className="modal-image" alt=""/>
+            <div id="caption">
+              <h1 className='modal-image-title'>Image Competition</h1>
+              <p className='modal-image-desc'></p>
+            </div>
+          </div>
+        </div>
+        {/* <Contact /> */}
         <Footer />
       </div>
     );
