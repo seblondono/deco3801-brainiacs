@@ -18,7 +18,7 @@ class Login extends React.Component {
           <div className="site-header__content">
               <div className="columns large-12">
                 <a href="http://www.uq.edu.au/" title="UQ Homepage" className="uq-logo">The University of Queensland</a>
-                <h2 className="site-title"><a className="site-title__link" rel="home" title="Single sign-on" href="https://auth.uq.edu.au/idp"><span className="hide-for-small-only">Single Public sign-on</span><span className="show-for-small-only">Single Public sign-on</span></a></h2>
+                <h2 className="site-title"><a className="site-title__link" rel="home" title="Single sign-on" href="/"><span className="hide-for-small-only">Single Public sign-on</span><span className="show-for-small-only">Single Public sign-on</span></a></h2>
               </div>
           </div>
         </div>

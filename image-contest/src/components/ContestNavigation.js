@@ -19,7 +19,7 @@ const ContestNavigation = (props) => {
             {/* Add variable corresponding to active or not active page based on URL */}
             <li className="leaf"><a href="/image-contest/vote" className={voting}>Vote</a></li>
             {/* Add variable corresponding to active or not active page based on URL */}
-            <li className="first leaf"><a href="/image-contest/past-winner" className={pastWinner}>Past Winner</a></li>
+            <li className="first leaf"><a href="/image-contest/past-winner" className={pastWinner}>Past Winners</a></li>
             {/* Add variable corresponding to active or not active page based on URL */}
             <li className="expanded"><a href="/about" title="" className={submit}>About</a>
               <ul className="menu__dropdown">

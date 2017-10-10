@@ -95,7 +95,7 @@
   color: #20c758;
 }
 /***************************************************************************/
-/****************************  Nominated Images ****************************/
+/****************************  Voted Images ****************************/
 
 .voting {
   padding: 1em;
@@ -119,7 +119,7 @@
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
 
-.nominated {
+.voted {
   width: 100%;
   max-height: 70px;
   margin: 0.4em 0;
@@ -130,54 +130,22 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-.nominatedImage {
+.votedImage {
   min-width: 50px;
   min-height: 50px;
   margin-right: 0.8em;
 }
 
-.nominatedImageTitle {
+.votedImageTitle {
   height: 50px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-.nominatedImageTitle > p {
+.votedImageTitle > p {
   font-weight: 400;
   margin: 0;
-}
-
-.nominate {
-  min-width: min-content;
-  max-width: min-content;
-  right: 0;
-  margin: 0;
-  margin-top: 1em;
-  align-self: flex-end;
-  padding: 0.5em 1.2em;
-  border-radius: 4px;
-  font-weight: 300;
-  line-height: 1em;
-  letter-spacing: normal;
-  background-color: #2377CB;
-  border-color: transparent;
-  color: #fff;
-}
-
-.nominate:disabled {
-  background-color: #74A3D2;
-  color: #fff;
-}
-
-.nominate:disabled:hover {
-  background-color: #74A3D2;
-  color: #fff;
-}
-
-.nominate:hover {
-  background-color: #1C66B0;
-  color: #fff;
 }
 
 .vote {
@@ -211,25 +179,6 @@
   color: #fff;
 }
 
-.vote-back {
-  min-width: min-content;
-  margin: 0;
-  margin-top: 1em;
-  padding: 0.5em 1.2em;
-  border-radius: 4px;
-  font-weight: 300;
-  line-height: 1em;
-  letter-spacing: normal;
-  background-color: #2377CB;
-  border-color: transparent;
-  color: #fff;
-}
-
-.vote-back:hover {
-  background-color: #1C66B0;
-  color: #fff;
-}
-
 .voting-instructions {
   padding: 0 1em;
 }
@@ -246,13 +195,13 @@
 #vote-buttons {
   width: 100%;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
 
 /***************************************************************************/
-/******************************  Past Winner  ******************************/
+/******************************  Past Winners  ******************************/
 
 #main-menu {
   min-width: 20%;
