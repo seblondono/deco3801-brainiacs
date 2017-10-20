@@ -6,6 +6,7 @@ const ContestNavigation = (props) => {
   const pastWinner = props.location.pathname === '/image-contest/past-winner' ? 'menu__link active' : 'menu__link';
   const voting = props.location.pathname === '/image-contest/vote' ? 'menu__link active' : 'menu__link';
   const submit = props.location.pathname === '/image-contest/submit' ? 'menu__link active' : 'menu__link';
+  const contact = props.location.pathname === '/image-contest/contact' ? 'menu__link active' : 'menu__link';
 
   return (
     <div className="navigation">
@@ -31,7 +32,7 @@ const ContestNavigation = (props) => {
                 <li className="last leaf"><a href="/annual_reports" title="" className="menu__link">Annual reports</a></li>
               </ul>
             </li>
-            <li className="last leaf"><a href="/contact" title="" className="menu__link">Contact</a></li>
+            <li className="last leaf"><a href="/image-contest/contact" title="" className={contact}>Contact</a></li>
           </ul>
         </div>
       </div>

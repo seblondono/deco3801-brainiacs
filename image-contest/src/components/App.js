@@ -127,6 +127,20 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+        <div className="vote-modal">
+          <div className="vote-modal-content">
+            <div className="vote-modal-header">
+              <span className="vote-close"
+                    onClick={() => {document.querySelector(".vote-modal").style.display="none"}}>
+                    &times;
+              </span>
+              <h2>Oopps!</h2>
+            </div>
+            <div className="vote-modal-body">
+              <p>Please keep in mind that you can only vote for your 3 favorite images.</p>
+            </div>
+          </div>
+        </div>
         {/* <Contact /> */}
         <Footer />
       </div>
