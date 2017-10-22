@@ -49,6 +49,10 @@ class Contact extends Component {
                                                     Fax: +61 7 3346 6301
                                                 </p>
                                             </div>
+                                            <br/>
+                                            <br/>
+                                            <br/>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -63,7 +67,7 @@ class Contact extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
                 <Footer />
             </div>        

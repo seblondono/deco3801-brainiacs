@@ -137,7 +137,7 @@ class App extends React.Component {
               <h2>Oopps!</h2>
             </div>
             <div className="vote-modal-body">
-              <p>Please keep in mind that you can only vote for your 3 favorite images.</p>
+              <p>Please, keep in mind that you can only vote for your 3 favorite images.</p>
             </div>
           </div>
         </div>

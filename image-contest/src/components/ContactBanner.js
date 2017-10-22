@@ -2,7 +2,7 @@ import React from 'react';
 
 // Stateless component. Does not change in the application
 // To be rendered at the bottom of the voting page
-const Contact = (props) => {
+const ContactBanner = (props) => {
     return (
         <div>
             <div className="panel-separator"></div>
