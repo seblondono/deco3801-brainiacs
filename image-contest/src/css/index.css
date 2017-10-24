@@ -4,6 +4,10 @@
 @import url("https://auth.uq.edu.au/idp/module.php/uqtheme/css/uq.css");
 @import url("./image-gallery.css");
 
+body {
+  background-color: white;
+}
+
 /*****************  Contest Images and Voting Preselection *****************/
 .image-contest {
   padding-top: 0;
@@ -17,10 +21,11 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  background-color: white;
 }
 
 .contest-images {
-  width: 70%;
+  width: 75%;
   min-height: 60%;
   margin: 0;
   padding: 1.5em;
@@ -32,10 +37,11 @@
 }
 
 .voting {
-  width: 30%;
+  width: 25%;
   min-height: 20%;
-  background-color: #f6f9fc;
+  /* background-color: #f4f5f6; */
   margin-top: 2em;
+  border-left: 2px solid #49075E;
 }
 
 #competitionTitle {
@@ -117,12 +123,12 @@
 /****************************  Voted Images ****************************/
 
 .voting {
-  padding: 1em;
+  padding: 1rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: space-around;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  /* box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23); */
 }
 
 .voting > h1 {
@@ -146,7 +152,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
 }
 
 .votedImage {
@@ -158,11 +164,17 @@
 .votedImageTitle {
   height: 50px;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
+.votedImageTitle h5 {
+  margin-bottom: 0.2rem;
+}
+
 .votedImageTitle > p {
+  font-size: 0.8rem;
   font-weight: 400;
   margin: 0;
 }
@@ -400,7 +412,7 @@
 }
 
 /***************************************************************************/
-/********************************  Modal Window  *********************************/
+/********************************  Modal Window for Image Showcase  *********************************/
 
 /* The Modal (background) */
 .modal {
@@ -413,7 +425,7 @@
   height: 100vh; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   padding: 3em 2em;
   justify-content: center;
   align-items: center;
@@ -423,8 +435,8 @@
 .modal-image {
   margin: auto;
   display: block;
-  width: 80%;
-  max-width: 50vw;
+  height: 75vh;
+  max-height: 80vw;
 }
 
 /* Caption of Modal Image (Image Text) - Same Width as the Image */
@@ -480,4 +492,94 @@
   .modal-image {
       width: 100%;
   }
+}
+
+/***************************************************************************/
+/********************************  Modal Window for Over the limit Voted Images *********************************/
+/* The Modal (background) */
+.vote-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 200px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.vote-modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 40%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.vote-close {
+  color: white;
+  float: right;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.vote-close:hover,
+.vote-close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vote-modal-header {
+  padding: 0.4rem 1.1rem;
+  background-color: #49075E;
+  color: white;
+}
+
+.vote-modal-header h2 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.vote-modal-body {
+  padding: 0.4rem 1.1rem;
+}
+
+/***************************************************************************/
+/********************************  Contact  *********************************/
+
+.contact-content {
+  width: 80vw;
+  height: 70vh;
+  background-color: white;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+/***************************************************************************/
+/********************************  Map *********************************/
+#qbi-map {
+  border: 0;
 }

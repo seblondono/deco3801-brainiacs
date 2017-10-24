@@ -3,13 +3,12 @@ import Header from './Header';
 import ContestNavigation from './ContestNavigation';
 import ImageSlider from './ImageSlider';
 import ImageDescription from './ImageDescription';
-import Contact from './Contact';
 import Footer from './Footer';
 
 import sampleImages from '../sample-images';
 
-// Pass winner parent component. TO be rendered in the past winner page.
-class  PastWinner extends Component {
+// Pass winner parent component. To be rendered in the past winner page.
+class PastWinner extends Component {
   constructor() {
     super();
     this.loadSampleImages = this.loadSampleImages.bind(this);
@@ -53,7 +52,6 @@ class  PastWinner extends Component {
           <ContestNavigation location={this.props.location}/>
           <ImageSlider images={this.state.images} getCurrentIndex={this.getCurrentIndex} />
           <ImageDescription images={this.state.images} currentIndex={this.state.currentIndex}/>
-          <Contact />
           <Footer />
       </div>
     );

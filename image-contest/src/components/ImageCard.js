@@ -27,16 +27,23 @@ class ImageCard extends React.Component {
 
     // Add images or remove them from vote state
     // Update icon accordingly
+    // Open modal when more than 3 images are selected
     vote(e) {
         const voted = this.props.imageDetails.selected;
+        const voteImages = Object.keys(this.props.voted);
 
-        if(!voted) {
-            this.props.addVote(this.props.imageKey);
-            this.props.imageDetails.selected = true;
-        } else {
-            this.props.removeVote(this.props.imageKey);
-            this.props.imageDetails.selected = false;
-        }
+            if(!voted) {
+                if (voteImages.length < 3) {
+                    this.props.addVote(this.props.imageKey);
+                    this.props.imageDetails.selected = true;
+                } else {
+                    const modal = document.querySelector('.vote-modal');
+                    modal.style.display = 'block';
+                }
+            } else {
+                this.props.removeVote(this.props.imageKey);
+                this.props.imageDetails.selected = false;
+            }
     }
 
     // Render selected images based on data saved at localstorage
@@ -62,11 +69,10 @@ class ImageCard extends React.Component {
         return (
             <div className='image-card'>
                 <h1>{imageTitle}</h1>
-                    <div id="image-card__image" style={imageBackground} title={imageTitle}>
-                        <a  onClick={this.openModal}>
-                            <i className='fa fa-search-plus' ></i>
-                        </a>
-                    </div>
+                    <a  onClick={this.openModal}>
+                        <div id="image-card__image" style={imageBackground} title={imageTitle}>
+                        </div>
+                    </a>
                 <p>{this.props.imageDetails.imageDesc}</p>
                 <i className={selected} aria-hidden="true" onClick={this.vote}></i>
             </div>

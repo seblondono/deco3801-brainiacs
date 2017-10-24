@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import NotFound from './components/NotFound';
 import PastWinner from './components/PastWinner';
 import Submit from './components/Submit';
+import Contact from './components/Contact';
 
 const Root = () => {
     return (
@@ -21,6 +22,7 @@ const Root = () => {
                     <Route exact path="/image-contest/vote" component={App} />
                     <Route exact path="/image-contest/past-winner" component={PastWinner} />
                     <Route exact path="/image-contest/submit" component={Submit} />
+                    <Route exact path="/image-contest/contact" component={Contact} />
                     <Route component={NotFound} />
                 </Switch>
             </div>

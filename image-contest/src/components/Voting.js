@@ -27,7 +27,8 @@ class Voting extends React.Component {
             <div className="voted" key={key}>
                 <div className="votedImage" style={imageBackground}></div>
                 <div className="votedImageTitle">
-                    <p>{image.imageTitle}</p>
+                    <h5>{image.imageTitle}</h5>
+                    <p>by {image.imageAuthor}</p>
                 </div>
             </div>
         )
