@@ -11,6 +11,7 @@ class Voting extends React.Component {
 
     vote() {
         // action for voting confirmation from user
+        console.log(this.props.voted);
     }
 
     // Render images selected by user
