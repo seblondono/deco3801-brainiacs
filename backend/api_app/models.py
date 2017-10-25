@@ -14,4 +14,4 @@ class Voter(models.Model):
    
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)
-        super(Model, self).save(*args, **kwargs)
+        super(Voter, self).save(*args, **kwargs)
