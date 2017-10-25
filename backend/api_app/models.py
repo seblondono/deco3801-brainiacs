@@ -6,7 +6,7 @@ class Voter(models.Model):
 	password = models.TextField()
 	fname = models.TextField(null=True, blank=True)
 	lname = models.TextField(null=True, blank=True)
-	postcode = models.Field(null=True, blank=True)
+	postcode = models.TextField(null=True, blank=True)
 
 	def __str__(self):
 		return str(self.email)
