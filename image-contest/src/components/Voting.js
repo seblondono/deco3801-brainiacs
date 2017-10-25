@@ -44,13 +44,12 @@ class Voting extends React.Component {
         if (notVoted) {
             return (
                 <div className="voting">
-                    <h1>Selected Images</h1>
                     <div>
                         <div className="voting-instructions">
-                            <p>Steps of the voting process:</p>
+                            <p>Submit your vote by:</p>
                             <ol>
-                                <li>Select up to 3 favorite images in order of preference by clicking in the plus icon.</li>
-                                <li>Click on vote.</li>
+                                <li>Selecting your 3 favorite images in order of preference by clicking in the  <i className="fa fa-plus"></i>  icon.</li>
+                                <li>Click on Vote.</li>
                             </ol>
                         </div>
                     </div>

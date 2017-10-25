@@ -4,6 +4,14 @@ import { withRouter } from 'react-router-dom';
 // Login for general public, QBI researchers and UQ students
 // Uses the react-router-dom library
 class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleEmailInput = this.handleEmailInput.bind(this);
+    this.handlePasswordInput = this.handlePasswordInput.bind(this);
+    this.state = {
+      emailInput: '',
+    };
+  }
 
   // Manage routing once user click in login button
   goToContest(e) {
@@ -13,30 +21,22 @@ class Login extends React.Component {
   //  this.props.history.push('/image-contest/vote');
   }
 
-constructor(props) {
-    super(props);
-    this.state = {
-        emailInput: '',
-    };
-    this.handleEmailInput = this.handleEmailInput.bind(this);
-    this.handlePasswordInput = this.handlePasswordInput.bind(this);
-}
+  handleEmailInput(e) {
+      this.setState({
+          emailInput: e.target.value
+      });
+  }
 
-
-handleEmailInput(e) {
-    this.setState({
-        emailInput: e.target.value
-    });
-}
-
-handlePasswordInput(e) {
-    this.setState({
-        passwordInput: e.target.value
-    });
-}
+  handlePasswordInput(e) {
+      this.setState({
+          passwordInput: e.target.value
+      });
+  }
 
   render() {
-      const emailInput = this.state.emailInput;
+
+    const emailInput = this.state.emailInput;
+
     return (
       <div>
         <div className="site-header">
@@ -88,6 +88,6 @@ handlePasswordInput(e) {
     )
   }
 }
- 
+
 export default withRouter(Login);
 

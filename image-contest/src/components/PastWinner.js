@@ -51,7 +51,7 @@ class PastWinner extends Component {
           <Header />
           <ContestNavigation location={this.props.location}/>
           <ImageSlider images={this.state.images} getCurrentIndex={this.getCurrentIndex} />
-          <ImageDescription images={this.state.images} currentIndex={this.state.currentIndex}/>
+          <ImageDescription images={this.state.images} currentIndex={this.state.currentIndex} />
           <Footer />
       </div>
     );

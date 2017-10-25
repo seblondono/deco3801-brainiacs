@@ -4,17 +4,8 @@ import { withRouter } from 'react-router-dom';
 // Sign up component. For general public users that do not have an account
 class Signup extends React.Component {
   // Manage routing to vonting home page
-  goToContest(e) {
-    e.preventDefault();
-    //this.props.history.push('/image-contest/vote');
-    if (this.state.Password===this.state.ConfPassword && this.state.Password.length>5){
-    this.props.history.push('/image-contest/vote');
-    } else if (this.state.Password.length <= 5){
-      document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
-    }
-  }
 
-constructor(props) {
+  constructor(props) {
     super(props);
     this.handleFname = this.handleFname.bind(this);
     this.handleLname = this.handleLname.bind(this);
@@ -24,45 +15,59 @@ constructor(props) {
     this.handleConfPassword = this.handleConfPassword.bind(this);
     this.state={Password: ''};
     this.state={ConfPassword: ''};
-}
-handleFname(e){
-    this.setState({Fname: e.target.value});
-}
-handleLname(e){
-    this.setState({Lname:e.target.value});
-}
-handlePostcode(e){
-    this.setState({Postcode:e.target.value});
-}
-handleEmail(e){
-    this.setState({Email:e.target.value});
-}
-handlePassword(e){
+  }
+
+  goToContest(e) {
+    e.preventDefault();
+    //this.props.history.push('/image-contest/vote');
+    if (this.state.Password === this.state.ConfPassword && this.state.Password.length > 5){
+    this.props.history.push('/image-contest/vote');
+    } else if (this.state.Password.length <= 5){
+      document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
+    }
+  }
+
+  handleFname(e){
+      this.setState({Fname: e.target.value});
+  }
+
+  handleLname(e){
+      this.setState({Lname:e.target.value});
+  }
+
+  handlePostcode(e){
+      this.setState({Postcode:e.target.value});
+  }
+
+  handleEmail(e){
+      this.setState({Email:e.target.value});
+  }
+
+  handlePassword(e){
     this.setState({Password:e.target.value});
     if (e.target.value.length > 5){
       document.getElementById('password-check').innerHTML = "";
     }
-    if (e.target.value == this.state.ConfPassword){
+    if (e.target.value === this.state.ConfPassword){
         document.getElementById("password-check").innerHTML = "";
     } else {
         document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
     }
-}
-handleConfPassword(e){
-    this.setState({ConfPassword:e.target.value});
-    if (e.target.value == this.state.Password){
-        document.getElementById("password-check").innerHTML = "";
-    } else {
-        document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
-    }
-}
+  }
 
-
+  handleConfPassword(e){
+      this.setState({ConfPassword:e.target.value});
+      if (e.target.value === this.state.Password){
+          document.getElementById("password-check").innerHTML = "";
+      } else {
+          document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
+      }
+  }
 
   render() {
     const signonstyle = {margin: "0px"};
-    {/*const date = new Date();
-    const today = date.toISOString().substring(0,10);*/}
+    /*const date = new Date();
+    const today = date.toISOString().substring(0,10);*/
     return (
       <div>
         <div className="site-header">
@@ -81,9 +86,6 @@ handleConfPassword(e){
                 <div className="large-6 large-offset-3 small-12 columns">
                   {/* <!-- UQ SSO Info --> */}
                   <div className="sign-on__icon">
-                  {/*<a href="https://its.uq.edu.au/sso" target="_blank" rel="noopener noreferrer">
-                    <img src="https://auth.uq.edu.au/idp/module.php/uqtheme/images/lock2.svg" className="center" alt="Sign on logo"/>
-                    </a>*/}
                   </div>
                   <h1 className="sign-on__title sign-on__title--centered" id="signon-title">Public <span>Sign-Up</span></h1>
                 </div>
@@ -91,17 +93,6 @@ handleConfPassword(e){
               <div className="row">
                 <div className="sign-on__content">
                   <form className="sign-on__form" onSubmit={(e) =>this.goToContest(e)}>
-                  {/*<label htmlFor="title" className="sign-on__form-label">Title</label>
-                    <select className='sign-on__select' name="title" id="title" tabIndex='1' autoFocus>
-                      <option defaultValue="Select Title">Select Title</option>
-                      <option defaultValue="Miss">Miss</option>
-                      <option defaultValue="Ms">Ms</option>
-                      <option defaultValue="Mr">Mr</option>
-                      <option defaultValue="Sir">Sir</option>
-                      <option defaultValue="Mrs">Mrs</option>
-                      <option defaultValue="Dr">Dr</option>
-                    </select>                                       
-                    <div className="sign-on-form__border"></div>*/}
                     <label htmlFor="firstname" className="sign-on__form-label">First Name</label>
                     <input type="text" id="firstname" tabIndex="2" name="firstname" title="firstname" placeholder="First Name" onChange={this.handleFname}  autoFocus/>                    						    
                     <div className="sign-on-form__border"></div>                    
@@ -114,9 +105,6 @@ handleConfPassword(e){
                     <label htmlFor="postcode" className="sign-on__form-label">Post Code</label>
                     <input type="text" pattern="^[0-9]{4}$" id="postcode" tabIndex="5" name="postcode" title="postcode" placeholder="Post Code" onChange={this.handlePostcode}/>                    
                     <div className="sign-on-form__border"></div>
-                    {/*<label htmlFor="birthday" className="sign-on__form-label">Birthday</label>
-                    <input type="date" id="date" name="bday" title="Birthday" defaultValue={today}/>
-                    <div className="sign-on-form__border" id="border"></div>*/}
                     <input id="password" type="password" name="password" title="Password" placeholder="Password" tabIndex="6" onChange={this.handlePassword}/> 
                     <div className="sign-on-form__border"></div>
                     <input id="cpassword" type="password" name="cpassword" title="Password" placeholder="Confirm Password" tabIndex="7" onChange={this.handleConfPassword}/> 

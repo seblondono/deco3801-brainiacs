@@ -13,7 +13,7 @@ class ImageDescription extends React.Component {
 			<div className='image-details'>
 				<h1>{image.imageTitle}</h1>
 				<p>{image.imageDesc}</p>
-				<button className='buy-button'>Buy</button>
+				{/* <button className='buy-button'>Buy</button> */}
 			</div>
 		)
 	}
