@@ -13,5 +13,6 @@ class Voter(models.Model):
         return str(self.email)
    
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
+        if "argon2$argon2" not in self.password:
+            self.password = make_password(self.password)
         super(Voter, self).save(*args, **kwargs)
