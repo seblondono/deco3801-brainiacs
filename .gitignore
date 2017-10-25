@@ -7,3 +7,5 @@ static/
 backend/db\.sqlite3
 
 backend/info_site_app/migrations/
+
+backend/api_app/migrations/
