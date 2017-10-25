@@ -7,8 +7,10 @@ class Signup extends React.Component {
   goToContest(e) {
     e.preventDefault();
     //this.props.history.push('/image-contest/vote');
-    if (this.state.Password===this.state.ConfPassword && this.state.Password.length>0){
+    if (this.state.Password===this.state.ConfPassword && this.state.Password.length>5){
     this.props.history.push('/image-contest/vote');
+    } else if (this.state.Password.length <= 5){
+      document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
     }
   }
 
@@ -21,6 +23,7 @@ constructor(props) {
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfPassword = this.handleConfPassword.bind(this);
     this.state={Password: ''};
+    this.state={ConfPassword: ''};
 }
 handleFname(e){
     this.setState({Fname: e.target.value});
@@ -36,6 +39,14 @@ handleEmail(e){
 }
 handlePassword(e){
     this.setState({Password:e.target.value});
+    if (e.target.value.length > 5){
+      document.getElementById('password-check').innerHTML = "";
+    }
+    if (e.target.value == this.state.ConfPassword){
+        document.getElementById("password-check").innerHTML = "";
+    } else {
+        document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
+    }
 }
 handleConfPassword(e){
     this.setState({ConfPassword:e.target.value});
