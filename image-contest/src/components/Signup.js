@@ -1,10 +1,10 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 // Sign up component. For general public users that do not have an account
 class Signup extends React.Component {
-  // Manage routing to vonting home page
-
   constructor(props) {
     super(props);
     this.handleFname = this.handleFname.bind(this);
@@ -13,15 +13,46 @@ class Signup extends React.Component {
     this.handleEmail = this.handleEmail.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
     this.handleConfPassword = this.handleConfPassword.bind(this);
-    this.state={Password: ''};
-    this.state={ConfPassword: ''};
+    this.state={
+      Password: '',
+      ConfPassword: '',
+      Email:'', Fname:'', 
+      Lname:'', 
+      Postcode:''
+    };
   }
 
+  // Manage routing to vonting home page
   goToContest(e) {
     e.preventDefault();
+    let self= this;
     //this.props.history.push('/image-contest/vote');
     if (this.state.Password === this.state.ConfPassword && this.state.Password.length > 5){
-    this.props.history.push('/image-contest/vote');
+    //this.props.history.push('/image-contest/vote');
+        fetch('/backend/voter/new/', {
+            method: 'post',
+            body: JSON.stringify({
+                email: this.state.Email,
+                password: this.state.Password,
+                fname:this.state.Fname,
+                lname:this.state.Lname,
+                postcode:this.state.Postcode,
+            })
+        }).then(function(response) {
+            console.log(response);
+            return response.json();
+        }).then(function(j) {
+            if (j.message==="Success"){
+                localStorage.setItem("email", self.state.Email);
+                document.getElementById('password-check').innerHTML = "";
+                self.props.history.push('/image-contest/vote');
+
+            } else {
+                document.getElementById('password-check').innerHTML = "<p>"+j.message+"</p>";
+            }
+        }).catch(function(err) {
+            console.log(err);
+        });
     } else if (this.state.Password.length <= 5){
       document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
     }
@@ -44,11 +75,20 @@ class Signup extends React.Component {
   }
 
   handlePassword(e){
-    this.setState({Password:e.target.value});
-    if (e.target.value.length > 5){
-      document.getElementById('password-check').innerHTML = "";
-    }
-    if (e.target.value === this.state.ConfPassword){
+      this.setState({Password:e.target.value});
+      if (e.target.value.length > 5){
+        document.getElementById('password-check').innerHTML = "";
+      }
+      if (e.target.value === this.state.ConfPassword){
+          document.getElementById("password-check").innerHTML = "";
+      } else {
+          document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
+      }
+  }
+  
+  handleConfPassword(e){
+    this.setState({ConfPassword:e.target.value});
+    if (e.target.value === this.state.Password){
         document.getElementById("password-check").innerHTML = "";
     } else {
         document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
