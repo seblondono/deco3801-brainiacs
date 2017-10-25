@@ -596,3 +596,13 @@ body {
 #qbi-map {
   border: 0;
 }
+
+/***************************************************************************/
+/********************************  Not Found  ********************************/
+.not-found {
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

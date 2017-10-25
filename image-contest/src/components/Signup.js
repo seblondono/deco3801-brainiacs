@@ -85,24 +85,6 @@ class Signup extends React.Component {
           document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
       }
   }
-  
-  handleConfPassword(e){
-    this.setState({ConfPassword:e.target.value});
-    if (e.target.value === this.state.Password){
-        document.getElementById("password-check").innerHTML = "";
-    } else {
-        document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
-    }
-  }
-
-  handleConfPassword(e){
-      this.setState({ConfPassword:e.target.value});
-      if (e.target.value === this.state.Password){
-          document.getElementById("password-check").innerHTML = "";
-      } else {
-          document.getElementById("password-check").innerHTML = "<p>Passwords do not match.</p>";
-      }
-  }
 
   render() {
     const signonstyle = {margin: "0px"};
