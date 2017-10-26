@@ -53,6 +53,8 @@ class Signup extends React.Component {
         }).catch(function(err) {
             console.log(err);
         });
+    } else if (this.state.Email.length < 2){
+      document.getElementById('password-check').innerHTML = "<p>Please add an email address</p>";
     } else if (this.state.Password.length <= 5){
       document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
     }
