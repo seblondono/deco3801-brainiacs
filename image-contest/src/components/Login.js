@@ -19,7 +19,7 @@ class Login extends React.Component {
     e.preventDefault();
     let self=this;
     if (this.state.Password.length>0 && this.state.Email.length>0){
-      fetch('/backend/voter/new/', {
+      fetch('/backend/voter/login/', {
             method: 'post',
             body: JSON.stringify({
                 email: this.state.Email,

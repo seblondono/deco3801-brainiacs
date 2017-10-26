@@ -8,7 +8,7 @@ class Voter(models.Model):
     fname = models.CharField(max_length=50, null=True, blank=True)
     lname = models.CharField(max_length=50, null=True, blank=True)
     postcode = models.IntegerField(null=True, blank=True)
-    voted = BooleanField(default=False)
+    voted = models.BooleanField(default=False)
     
     def __str__(self):
         return str(self.email)
