@@ -20,12 +20,12 @@ class Voter(models.Model):
         super(Voter, self).save(*args, **kwargs)
 
 class ImageEntry(models.Model):
-    identifier = models.CharField(max_length=100, unique=True)
-    location = models.CharField(max_length=100)
+    key = models.CharField(max_length=100, unique=True)
+    url = models.CharField(max_length=100)
     author = models.CharField(max_length=100)
     title = models.CharField(max_length=100)
     description = models.TextField()
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-            return "|".join([str(self.title), str(votes)+" Votes"])
+            return "|".join([str(self.title), str(self.votes)+" Votes"])

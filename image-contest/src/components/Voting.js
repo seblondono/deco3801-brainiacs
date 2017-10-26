@@ -11,7 +11,28 @@ class Voting extends React.Component {
 
     vote() {
         // action for voting confirmation from user
-        console.log(this.props.voted);
+        let data=[localStorage.email];
+        let img;
+        for (img in this.props.voted){
+            let vote = {};
+            vote.key = img;
+            vote.title = this.props.images[img].imageTitle;
+            vote.author =  this.props.images[img].imageAuthor;
+            vote.description =  this.props.images[img].imageDesc;
+            vote.url =  this.props.images[img].imageURL;
+            data.push(vote);
+        }
+        let self=this;
+        fetch('/backend/vote/make/', {
+            method: 'post', 
+            body: JSON.stringify(data)
+        }).then(function(response) {
+            return response.json();
+        }).then(function(j) {
+            document.getElementById('message').innerHTML = j.message;
+        }).catch(function(err) {
+            console.log(err);
+        });
     }
 
     // Render images selected by user
@@ -69,6 +90,7 @@ class Voting extends React.Component {
                 <div id="vote-buttons">
                     <button className="vote" onClick={this.vote}>Vote</button>
                 </div>
+                <div id="message"></div>
             </div>
         )
     }
