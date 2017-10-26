@@ -18,3 +18,14 @@ class Voter(models.Model):
         if "argon2$argon2" not in self.password:
             self.password = make_password(self.password)
         super(Voter, self).save(*args, **kwargs)
+
+class ImageEntry(models.Model):
+    identifier = models.CharField(max_length=100, unique=True)
+    location = models.CharField(max_length=100)
+    author = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):
+            return "|".join([str(self.title), str(votes)+" Votes"])
