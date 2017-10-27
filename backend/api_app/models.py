@@ -28,4 +28,4 @@ class ImageEntry(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-            return "|".join([str(self.title), str(self.votes)+" Votes"])
+            return " | ".join([str(self.title), str(self.votes)+" Votes"])

@@ -44,6 +44,7 @@ class Signup extends React.Component {
         }).then(function(j) {
             if (j.message==="Success"){
                 localStorage.setItem("email", self.state.Email);
+                localStorage.removeItem("voted");
                 document.getElementById('password-check').innerHTML = "";
                 self.props.history.push('/image-contest/vote');
 
@@ -56,7 +57,7 @@ class Signup extends React.Component {
     } else if (this.state.Email.length < 2){
       document.getElementById('password-check').innerHTML = "<p>Please add an email address</p>";
     } else if (this.state.Password.length <= 5){
-      document.getElementById('password-check').innerHTML = "<p>Password must be more than 5 characters</p>";
+      document.getElementById('password-check').innerHTML = "<p>Password must be 6 or more characters</p>";
     }
   }
 

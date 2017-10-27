@@ -99,7 +99,7 @@ class App extends React.Component {
       <div>
         <Header />
         <ContestNavigation location={this.props.location}/>
-        <h1 id='competitionTitle'>Art in Neurscience 2017</h1>
+        <h1 id='competitionTitle'>Art in Neuroscience 2017</h1>
         <div className="main-contest">
           {/* Pass props to child components */}
           <ContestImages 

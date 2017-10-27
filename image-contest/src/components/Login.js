@@ -30,6 +30,8 @@ class Login extends React.Component {
             return response.json();
         }).then(function(j) {
             if (j.message==="Success"){
+                if (localStorage.email !== self.state.Email){
+                    localStorage.removeItem("voted");}
                 localStorage.setItem("email", self.state.Email);
                 self.props.history.push('/image-contest/vote');
             } else {
