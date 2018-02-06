@@ -3,7 +3,6 @@ import Header from './Header';
 import ContestNavigation from './ContestNavigation';
 import ContestImages from './ContestImages';
 import Voting from './Voting';
-// import Contact from './Contact';
 import Footer from './Footer';
 import sampleImages from '../sample-images';
 
